@@ -1,0 +1,49 @@
+/*----------------------------------------------------------
+    Author: Alex Megahy
+    Description: Chat messages styling
+    Contents:   - Default message
+                    - Name
+                - Message time
+                - Same user message
+-----------------------------------------------------------*/
+
+@import "../site.less";
+
+/*
+*   Default message
+*/
+.msg {
+    background-color: @message-other-BG;
+    border-radius: @message-border-radius;
+    color: @message-other-colour;
+
+    /*
+    *   Name
+    */
+    .msg-name {
+        color: @message-details-colour;
+        position: absolute;
+        top: -20px;
+    }
+}
+
+/*
+*   Message time
+*/
+.msg-time {
+    color: @message-details-colour;
+    margin: auto;
+    width: fit-content;
+}
+
+/*
+*   Same user message
+*/
+.user {
+    flex-direction: row-reverse;
+    
+    .msg {
+        background-color: @message-user-BG;
+        color: @message-user-colour;
+    }
+}

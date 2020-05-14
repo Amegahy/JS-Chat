@@ -1,0 +1,39 @@
+/*----------------------------------------------------------
+    Author: Alex Megahy
+    Description: Global styling
+    Contents:   - Body
+                - Buttons
+-----------------------------------------------------------*/
+
+@import "reset.css";
+@import "site.less";
+
+/*
+*   Body
+*/
+body {
+    background-color: @page-BG;
+    color: @page-colour;
+}
+
+body > * {
+    box-sizing: border-box;
+}
+
+/*
+*   Buttons
+*/
+button,
+input[type=submit] {
+    background-color: @button-BG;
+    border: @button-border;
+    color: @button-colour;
+    outline: none;
+    padding: 5px;
+
+    &:hover {
+        background-color: @button-hover-BG;
+        color: @button-hover-colour;   
+        cursor: pointer;
+    }
+}

@@ -1,0 +1,13 @@
+/*----------------------------------------------------------
+    Author: Alex Megahy
+    Description: chat.php styling
+    Contents:   - Imports
+-----------------------------------------------------------*/
+/*
+*   Imports
+*/
+@import "../reset.css";
+@import "../global.css";
+@import "../components/chat-panel.css";
+@import "../components/chat-msg.css";
+@import "../components/chat-box.css";

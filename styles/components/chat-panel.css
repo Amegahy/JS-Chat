@@ -1,0 +1,57 @@
+/*----------------------------------------------------------
+    Author: Alex Megahy
+    Description: Chat panel styling
+    Contents:   - Panel
+-----------------------------------------------------------*/
+/*----------------------------------------------------------
+    Author: Alex Megahy
+    Description: Site wide styling variables
+    Contents:   - Colours
+                - Fonts
+                - Global
+                - Log in
+                - Chat
+-----------------------------------------------------------*/
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Poppins Regular'), local('Poppins-Regular'), url(https://fonts.gstatic.com/s/poppins/v9/pxiEyp8kv8JHgFVrFJA.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 100;
+  font-display: swap;
+  src: local('Roboto Thin'), local('Roboto-Thin'), url(https://fonts.gstatic.com/s/roboto/v20/KFOkCnqEu92Fr1MmgWxP.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Roboto'), local('Roboto-Regular'), url(https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Me5Q.ttf) format('truetype');
+}
+/*
+*   Colours
+*/
+/*
+*   Fonts
+*/
+/*
+*   Global
+*/
+/*
+*   Log in
+*/
+/*
+*   Chat
+*/
+/*
+*   Panel
+*/
+.chat-panel {
+  background-color: #fff;
+  border: 1px solid #f5f5f5;
+}
