@@ -15,5 +15,10 @@ window.onload = function() {
     /*
      *   Event listeners
      */
-    //document.getElementsByClassName("msg-submit")[0].addEventListener('click', submitMsg); // Auto size msg-box
+    document.addEventListener('click', function(e) {
+        if (e.target && e.target.className == 'user-item') {
+            console.log("CLick");
+        }
+    });
+    //  document.getElementsByClassName("row")[0].addEventListener('click', function() { alert("Click"); }); // Auto size msg-box
 }

@@ -30,7 +30,9 @@ function display_users(users) {
     if (names.length == 0) { // If no users
         displayed_users = "Sorry you have no-one to talk to";
     } else {
-        displayed_users = "<div class='row'><div class='col-8 col-sm-6 col-md-4 p-3'><h2>USER</h2></div></div>";
+        names[0].users.forEach(function(item, index) {
+            displayed_users += "<div class='row'><div class='col-12 p-3'><h3 class='user-item'>" + item + "</h3></div></div>";
+        })
     }
     document.getElementsByClassName("chat-user-list")[0].innerHTML = displayed_users; // Auto size msg-box
 }

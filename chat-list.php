@@ -26,7 +26,7 @@
     <!-- Chat panel containing messages -->
     <div class="container p-3">
         <h1 class="text-center my-3">Select a user to talk to</h1>
-        <div class="container p-3 chat-user-list">
+        <div class="container p-3 text-left chat-user-list">
         </div>
     </div>
 </body>

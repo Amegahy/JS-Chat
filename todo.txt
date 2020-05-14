@@ -1,8 +1,5 @@
-- styles (- Chat box
-          - Chat panel
-          - Buttons
-          )
 - multiple users at once (might need to wait for log in to start user online modes instead of session names, multiple session names will overidde)
 - Log in
 - Error messages, more UF
 - Commenting
+- pull-chat used the same loop as pull-chat-user
