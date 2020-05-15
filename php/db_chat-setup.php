@@ -20,7 +20,7 @@ $chatIdSql = "SELECT id FROM chats WHERE chat_name ='".$chat_item."'";
 $chatIdResult = $conn->query($chatIdSql);
 if ($chatIdResult->num_rows > 0) { // If there are more rows
     while($row = $chatIdResult->fetch_assoc()) { 
-        $id = $row['id'];
+        $_SESSION["chat_id"] = $row['id'];
     }
 }
 

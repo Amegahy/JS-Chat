@@ -17,21 +17,12 @@ function load_msg() {
     var chatUser = localStorage.getItem("chat-user"); // Chat selected
 
     setInterval(function() {
-        // if (rows < 5) { // Reset $rows if too low
-        //     rows = 5;
-        // }
+        if (rows < 5) { // Reset $rows if too low
+            rows = 5;
+        }
         $.post("php/db_chat-pull.php", { rows: rows, user: chatUser }).done(function(data) {
-            console.log(data);
+            display_msg(data);
         });
-        // var xmlhttp = new XMLHttpRequest();
-        // xmlhttp.onreadystatechange = function() {
-        //     if (this.readyState == 4 && this.status == 200) {
-        //         //display_msg(this.responseText);
-        //         console.log(this.responseText);
-        //     }
-        // }
-        // xmlhttp.open("GET", "php/db_chat-pull.php?rows=" + rows + "&user" + localStorage.getItem("chat-user"), true);
-        // xmlhttp.send();
     }, 500);
 }
 
