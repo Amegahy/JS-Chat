@@ -16,11 +16,12 @@ include 'db_con.php';
 *   Convert chat name into ID
 */
 $chat_item = $_POST["chat_item"];
-$chatIdSql = "SELECT id FROM chats WHERE chat_name ='".$chat_item."'";
+$chatIdSql = "SELECT * FROM chats WHERE chat_name ='".$chat_item."'";
 $chatIdResult = $conn->query($chatIdSql);
 if ($chatIdResult->num_rows > 0) { // If there are more rows
     while($row = $chatIdResult->fetch_assoc()) { 
         $_SESSION["chat_id"] = $row['id'];
+        $_SESSION["chat_name"] = $row['chat_name'];
     }
 }
 

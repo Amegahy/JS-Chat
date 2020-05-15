@@ -16,15 +16,15 @@ include 'db_con.php';
 /*
 *   Form values
 */
-$name = $_SESSION["username"];
+$name = $_POST["user"];
 date_default_timezone_set('Europe/London');
 $time = date("H:i:s"); 
-$msg = $_REQUEST['msg'];
+$msg = $_POST['msg'];
 
 /*
 *   SQL to create table
 */
-$sql = "INSERT INTO practice_chat (name, time, message)
+$sql = "INSERT INTO " . $_SESSION["chat_id"] . " (name, time, message)
 VALUES ('$name', '$time', '$msg')";
 
 /*

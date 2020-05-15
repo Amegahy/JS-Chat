@@ -9,6 +9,7 @@
 
 var rows = 5; // Max default number of rows on screen
 var current_chat = ""; // Stores the current chat json
+var username = localStorage.getItem("username"); // Username 
 
 /*
  *   Interval load messages
@@ -53,8 +54,9 @@ function display_msg(data) {
                 return;
             }
             chat += "<div class='row my-5 ";
-            if (parsed[i].name == "You") { // If this is the user's message, add the 'user' class
+            if (parsed[i].name == username) { // If this is the user's message, add the 'user' class
                 chat += "user";
+                parsed[i].name = "You";
             }
             chat += "'>";
             chat += "<p class='msg-time mx-2'>" + parsed[i].time + "</p>";
@@ -70,5 +72,5 @@ function display_msg(data) {
         document.getElementsByClassName("chat-panel")[0].innerHTML = chat;
         current_chat = chat;
     }
-    document.getElementsByClassName("chat-title")[0].innerHTML = names.names;
+    document.getElementsByClassName("chat-title")[0].innerHTML = names.chat_title;
 }

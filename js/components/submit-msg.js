@@ -10,18 +10,15 @@
  */
 function submitMsg(event) {
     var form = document.getElementsByClassName("msg-form")[0]; // Form 
-    var data = document.getElementsByClassName("msg-box")[0].value; // Message 
+    var msg = document.getElementsByClassName("msg-box")[0].value; // Message 
+    var user = localStorage.getItem("username");
 
     event.preventDefault();
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            form.reset();
-            enableSubmit();
-        }
-    }
-    xmlhttp.open("GET", "php/db_chat-put.php?msg=" + data, true);
-    xmlhttp.send();
+
+    $.post("php/db_chat-put.php", { msg: msg, user: user }).done(function(data) {
+        form.reset();
+        enableSubmit();
+    });
 }
 
 /*

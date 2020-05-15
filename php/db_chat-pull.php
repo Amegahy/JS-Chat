@@ -14,23 +14,15 @@ Contents:   - Include the database connection
 include 'db_con.php';
 
 /*
-*   Distinct names 
+*   Chat name 
 */
-$nameSql = "SELECT DISTINCT name FROM ". $_SESSION["chat_id"];
-$nameResult = $conn->query($nameSql);
-if ($nameResult->num_rows > 0) { // If there are more rows
-    $names = array();
-    while($row = $nameResult->fetch_assoc()) { 
-        array_push($names, $row['name']);
-    }
-    $response[] = array('names'=> $names); // Add names to response array
-}
+$response[] = array('chat_title'=> $_SESSION["chat_name"]); // Add names to response array
 
 /*
 *   Messages 
 */
 $rowCount = $_REQUEST["rows"];
-$msgSql = "SELECT * FROM ". $_SESSION["chat_id"]. " ORDER BY 'id' DESC LIMIT " . $rowCount;
+$msgSql = "SELECT * FROM ". $_SESSION["chat_id"]. " ORDER BY `a4`.`id` DESC LIMIT " . $rowCount;
 $posts = array();
 $msgResult = $conn->query($msgSql);
 
