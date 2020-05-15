@@ -8,25 +8,39 @@ Contents:   - Include the database connection
 -----------------------------------------------------------*/
 
 /*
+*   Include the database connection
+*/
+include 'db_con.php';
+
+/*
 *   Convert chat name into ID
 */
-$chatName = $_SESSION["user_name"].$_SESSION["chatUser"];
-$chatNameSql = "SELECT DISTINCT * FROM " . $chatName;
-$chatNameResult = $conn->query($chatNameSql);
-
-if (!$chatNameResult->num_rows) { // If the table does not exist
-    $createSQL = "CREATE TABLE ". $chatName ."(
-        id INT(255) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-        name VARCHAR(20) NOT NULL,
-        time VARCHAR(5) NOT NULL,
-        message text NOT NULL)";
-    if ($conn->query($createSQL) === TRUE) {
-        echo "Table MyGuests created successfully";
-    } else {
-        echo "Error creating table: " . $conn->error;
+$chat_item = $_POST["chat_item"];
+$chatIdSql = "SELECT id FROM chats WHERE chat_name ='".$chat_item."'";
+$chatIdResult = $conn->query($chatIdSql);
+if ($chatIdResult->num_rows > 0) { // If there are more rows
+    while($row = $chatIdResult->fetch_assoc()) { 
+        $id = $row['id'];
     }
 }
-echo $createSQL;
+
+// $chatName = $_SESSION["user_name"].$_SESSION["chatUser"];
+// $chatNameSql = "SELECT DISTINCT * FROM " . $chatName;
+// $chatNameResult = $conn->query($chatNameSql);
+
+// if (!$chatNameResult->num_rows) { // If the table does not exist
+//     $createSQL = "CREATE TABLE ". $chatName ."(
+//         id INT(255) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+//         name VARCHAR(20) NOT NULL,
+//         time VARCHAR(5) NOT NULL,
+//         message text NOT NULL)";
+//     if ($conn->query($createSQL) === TRUE) {
+//         echo "Table MyGuests created successfully";
+//     } else {
+//         echo "Error creating table: " . $conn->error;
+//     }
+// }
+// echo $createSQL;
 
 /*
 *   Locate chat 

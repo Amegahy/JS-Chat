@@ -16,8 +16,8 @@ window.onload = function() {
      *   Dynamic event listeners
      */
     document.addEventListener('click', function(e) {
-        if (e.target && e.target.className == 'user-item') {
-            select_user(e.target);
+        if (e.target && e.target.className == 'chat-list-item') {
+            select_chat(e.target);
         }
     });
 }
