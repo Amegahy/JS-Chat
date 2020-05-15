@@ -17,7 +17,8 @@ function select_chat(chat) {
     var chatArray = chat_item.split(",");
     chat_item = chatArray.sort().join();
 
-    $.post("php/db_chat-setup.php", { chat_item: chat_item }).done(function(data) {
-        window.location.href = "chat.php";
+    $.post("php/db_chat-setup.php", { chat_item: chat_item, user: username }).done(function(data) {
+        console.log(data);
+        //window.location.href = "chat.php";
     });
 }

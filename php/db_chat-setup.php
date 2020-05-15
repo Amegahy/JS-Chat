@@ -4,6 +4,8 @@ Author: Alex Megahy
 Description: Pull messages from the DB
 Contents:   - Include the database connection
             - Convert chat name into ID 
+            - Chat exists
+            - Chat does not exist
             - Locate chat 
 -----------------------------------------------------------*/
 
@@ -18,11 +20,36 @@ include 'db_con.php';
 $chat_item = $_POST["chat_item"];
 $chatIdSql = "SELECT * FROM chats WHERE chat_name ='".$chat_item."'";
 $chatIdResult = $conn->query($chatIdSql);
+
+/*
+*   Chat exists
+*/
 if ($chatIdResult->num_rows > 0) { // If there are more rows
     while($row = $chatIdResult->fetch_assoc()) { 
         $_SESSION["chat_id"] = $row['id'];
         $_SESSION["chat_name"] = $row['chat_name'];
+        echo "FOUND";
     }
+
+/*
+*   Chat does not exist
+*/
+}else { // If chat does not exist
+    echo "NONE";
+    echo generateRandomString();
+}
+
+function generateRandomString($length = 10) {
+    $firstCharacter = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $firstCharactersLength = strlen($firstCharacter);
+    $charactersLength = strlen($characters);
+    $randomString = '';
+    $randomString .= $firstCharacter[rand(0, $firstCharactersLength - 1)];
+    for ($i = 0; $i < $length; $i++) {
+        $randomString .= $characters[rand(0, $charactersLength - 1)];
+    }
+    return $randomString;
 }
 
 // $chatName = $_SESSION["user_name"].$_SESSION["chatUser"];

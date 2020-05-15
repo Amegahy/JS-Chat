@@ -9,14 +9,9 @@
  *   Pull in chat list
  */
 function pull_chat_list() {
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            display_chats(this.responseText);
-        }
-    }
-    xmlhttp.open("GET", "php/db_chat-list.php", true);
-    xmlhttp.send();
+    $.post("php/db_chat-list.php", {}).done(function(data) {
+        display_chats(data);
+    });
 }
 
 /*
