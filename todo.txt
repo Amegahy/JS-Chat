@@ -3,3 +3,4 @@
 - Error messages, more UF
 - Commenting
 - pull-chat used the same loop as pull-chat-user
+- redo all ajax calls to follow chat-pull.js

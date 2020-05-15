@@ -1,8 +1,8 @@
 /*----------------------------------------------------------
     Author: Alex Megahy
-    Description: On load function listeners for chat.php
+    Description: On load function listeners for chat-list.php
     Contents:   - On load functions
-                - Event listeners                
+                - Dynamic event listeners               
 ----------------------------------------------------------*/
 
 window.onload = function() {
@@ -10,15 +10,14 @@ window.onload = function() {
     /*
      *   On load functions
      */
-    pull_users(); // Pull users
+    pull_chat_list(); // Pull chats
 
     /*
-     *   Event listeners
+     *   Dynamic event listeners
      */
     document.addEventListener('click', function(e) {
         if (e.target && e.target.className == 'user-item') {
-            console.log("CLick");
+            select_user(e.target);
         }
     });
-    //  document.getElementsByClassName("row")[0].addEventListener('click', function() { alert("Click"); }); // Auto size msg-box
 }

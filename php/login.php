@@ -11,13 +11,16 @@
 */
 include 'db_con.php';
 
-session_start();
-
 /*
-*   Check log in details with DB
+*   Retrieve user ID
 */
-$loginSql = "SELECT email,password FROM `users`";
-
-$_SESSION["username"] = $_POST['usr'];
-header('Location: ../chat-list.php');
+$usrIdSql = "SELECT firstName, lastName FROM `users` WHERE email = '" . $_POST['usr'] . "'";
+$usrIdResult = $conn->query($usrIdSql);
+if ($usrIdResult->num_rows > 0) { // If there are more rows
+    while($row = $usrIdResult->fetch_assoc()) { 
+        $username = $row['firstName']. " " .$row['lastName'];
+    }
+}
+$_SESSION["user_name"] = $username;
+echo $username;
 ?>

@@ -1,7 +1,7 @@
 <?php 
 /*----------------------------------------------------------
     Author: Alex Megahy
-    Description: Pull is list of chats
+    Description: Pull is list of chat users
     Contents:   - Include the database connection
                 - Select all first and last names from DB
 -----------------------------------------------------------*/
@@ -14,15 +14,15 @@ include 'db_con.php';
 /*
 *   Select all first and last names from DB
 */
-$chatListSql = "SELECT * FROM `chats` WHERE users LIKE '%" . $_SESSION["user_name"] . "%'";
-$chatListResult = $conn->query($chatListSql);
+$chatUsersSql = "SELECT firstName,lastName FROM `users`";
+$chatUsersResult = $conn->query($chatUsersSql);
 $respone = [];
-if ($chatListResult->num_rows > 0) { // If there are more rows
-    $chats = array();
-    while($row = $chatListResult->fetch_assoc()) { 
-        array_push($chats, $row['chat_name']);
+if ($chatUsersResult->num_rows > 0) { // If there are more rows
+    $users = array();
+    while($row = $chatUsersResult->fetch_assoc()) { 
+        array_push($users, ($row['firstName']. " ". $row['lastName']));
     }
-    $response[] = array('chats'=> $chats); // Add users to response array
+    $response[] = array('users'=> $users); // Add users to response array
 }
 $json = json_encode($response);
 echo $json;

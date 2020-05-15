@@ -14,18 +14,24 @@ var current_chat = ""; // Stores the current chat json
  *   Interval load messages
  */
 function load_msg() {
+    var chatUser = localStorage.getItem("chat-user"); // Chat selected
+
     setInterval(function() {
-        if (rows < 5) { // Reset $rows if too low
-            rows = 5;
-        }
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                display_msg(this.responseText);
-            }
-        }
-        xmlhttp.open("GET", "php/db_chat-pull.php?rows=" + rows, true);
-        xmlhttp.send();
+        // if (rows < 5) { // Reset $rows if too low
+        //     rows = 5;
+        // }
+        $.post("php/db_chat-pull.php", { rows: rows, user: chatUser }).done(function(data) {
+            console.log(data);
+        });
+        // var xmlhttp = new XMLHttpRequest();
+        // xmlhttp.onreadystatechange = function() {
+        //     if (this.readyState == 4 && this.status == 200) {
+        //         //display_msg(this.responseText);
+        //         console.log(this.responseText);
+        //     }
+        // }
+        // xmlhttp.open("GET", "php/db_chat-pull.php?rows=" + rows + "&user" + localStorage.getItem("chat-user"), true);
+        // xmlhttp.send();
     }, 500);
 }
 

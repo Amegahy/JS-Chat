@@ -1,31 +1,17 @@
 /*----------------------------------------------------------
     Author: Alex Megahy
-    Description: Validates login systems
-    Contents:   - 'on' functions for login
-                - Check username validity
-                - Check password validity
+    Description: Login user
+    Contents:   - Set username
 ----------------------------------------------------------*/
 
 /*
- *   'on' functions for login
+ *   Set username
  */
-$(document).ready(function() {
-    $(".login-submit").click(function() {
-        username_check($(".usr").val());
-        password_check($(".pwd").val());
+function set_usr(event) {
+    var user = document.getElementsByClassName("usr")[0].value;
+    event.preventDefault();
+    $.post("php/login.php", { usr: user }).done(function(data) {
+        localStorage.setItem("username", data);
+        window.location.href = "chat-list.php";
     });
-});
-
-/*
- *   Check username validity
- */
-function username_check(details) {
-    alert(details);
-}
-
-/*
- *   Check password validity
- */
-function password_check(details) {
-    alert(details);
 }
