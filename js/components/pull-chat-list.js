@@ -29,8 +29,13 @@ function display_chats(response) {
     if (chats.length == 0) { // If no users
         displayed_chats = "Sorry you have no-one to talk to";
     } else {
+        var username = localStorage.getItem("username");
+
         chats[0].chats.forEach(function(item, index) {
-            //var res = str.replace("Microsoft", "W3Schools);
+            if (item.includes("," + username) || item.includes(username + ",")) {
+                item = item.replace("," + username, "");
+                item = item.replace(username + ",", "");
+            }
             displayed_chats += "<div class='row'><div class='col-12 p-3'><h3 class='user-item'>" + item + "</h3></div></div>";
         })
     }
