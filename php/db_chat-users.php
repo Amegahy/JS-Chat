@@ -20,9 +20,11 @@ $respone = [];
 if ($chatUsersResult->num_rows > 0) { // If there are more rows
     $users = array();
     while($row = $chatUsersResult->fetch_assoc()) { 
-        array_push($users, ($row['firstName']. " ". $row['lastName']));
+        if (($row['firstName']. " ". $row['lastName']) != $_SESSION['user_name']){
+            array_push($users, ($row['firstName']. " ". $row['lastName']));
+        }
     }
-    $response[] = array('users'=> $users); // Add users to response array
+    $response[] = array('chats'=> $users); // Add users to response array
 }
 $json = json_encode($response);
 echo $json;

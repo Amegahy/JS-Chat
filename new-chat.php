@@ -1,6 +1,6 @@
 <!----------------------------------------------------------
     Author: Alex Megahy
-    Description: Main chat page
+    Description: Start new chat with user
     Contents:   - Load more button
                 - Chat panel containing messages
                 - Message submission form
@@ -18,19 +18,18 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <script src="js/components/display-chats.js"></script>
-    <script src="js/components/pull-chat-list.js"></script>
+    <script src="js/components/load-user.js"></script>
     <script src="js/components/select-chat.js"></script>
-    <script src="js/pages/chat-list.js"></script>
-    <title>Practice chat</title>
+    <script src="js/pages/new-chat.js"></script>
+    <title>New chat</title>
 </head>
 
 <body>
     <!-- Chat panel containing messages -->
     <div class="container p-3">
         <h1 class="text-center my-3">Select a user to talk to</h1>
-        <div class="container p-3 text-left chat-list">
+        <div class="container p-3 text-left user-list">
         </div>
-        <button class="new-chat"><a href = "new-chat.php">Start a new chat</a></button>
     </div>
 </body>
 

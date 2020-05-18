@@ -22,7 +22,7 @@ $response[] = array('chat_title'=> $_SESSION["chat_name"]); // Add names to resp
 *   Messages 
 */
 $rowCount = $_REQUEST["rows"];
-$msgSql = "SELECT * FROM ". $_SESSION["chat_id"]. " ORDER BY `a4`.`id` DESC LIMIT " . $rowCount;
+$msgSql = "SELECT * FROM ". $_SESSION["chat_id"] ." ORDER BY `". $_SESSION["chat_id"] ."`.`id` DESC LIMIT " . $rowCount;
 $posts = array();
 $msgResult = $conn->query($msgSql);
 
@@ -36,7 +36,7 @@ if ($msgResult->num_rows > 0) { // If there are more rows
         $msg=$row['message']; 
         $response[] = array('name'=> $name, 'time'=> $time, 'msg'=> $msg);
     } 
-    $json = json_encode($response);
-    echo $json;
 }
+$json = json_encode($response);
+echo $json;
 ?>
