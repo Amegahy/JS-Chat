@@ -24,7 +24,7 @@ if ($chatUsersResult->num_rows > 0) { // If there are more rows
             array_push($users, ($row['firstName']. " ". $row['lastName']));
         }
     }
-    $response[] = array('chats'=> $users); // Add users to response array
+    $response[] = array('users'=> $users); // Add users to response array
 }
 $json = json_encode($response);
 echo $json;

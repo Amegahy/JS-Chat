@@ -1,11 +1,19 @@
 /*----------------------------------------------------------
     Author: Alex Megahy
     Description: On load function listeners for new-chat.php
-    Contents:   - On load functions           
-                - Dynamic event listeners           
+    Contents:   - Global variables
+                - On load functions           
+                - Dynamic event listeners    
+                - Event listeners       
 ----------------------------------------------------------*/
 
 window.onload = function() {
+
+    /*
+     *   Global variables
+     */
+    var checkedUsers = [];
+
     /*
      *   On load functions
      */
@@ -15,8 +23,16 @@ window.onload = function() {
      *   Dynamic event listeners
      */
     document.addEventListener('click', function(e) {
-        if (e.target && e.target.className == 'chat-list-item') {
-            select_chat(e.target);
+        if (e.target && e.target.className == 'user-list-item') {
+            checkedUsers = user_checkbox(e.target, checkedUsers); // Pass the selected user on to be checked
         }
     });
+
+    /*
+     *   Event listeners
+     */
+    document.getElementsByClassName("submit-users")[0].addEventListener("click", function() {
+        console.log(a);
+    }); // Increase rows on click of btn-load
+
 }

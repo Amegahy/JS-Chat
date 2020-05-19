@@ -17,8 +17,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-    <script src="js/components/display-chats.js"></script>
     <script src="js/components/load-user.js"></script>
+    <script src="js/components/user-checkbox.js"></script>
     <script src="js/components/select-chat.js"></script>
     <script src="js/pages/new-chat.js"></script>
     <title>New chat</title>
@@ -30,6 +30,7 @@
         <h1 class="text-center my-3">Select a user to talk to</h1>
         <div class="container p-3 text-left user-list">
         </div>
+        <button class="submit-users">Start chat</button>
     </div>
 </body>
 
