@@ -16,7 +16,7 @@ include 'db_con.php';
 */
 $chatListSql = "SELECT * FROM `chats` WHERE users LIKE '%" . $_SESSION["user_name"] . "%'";
 $chatListResult = $conn->query($chatListSql);
-$respone = [];
+$response = [];
 if ($chatListResult->num_rows > 0) { // If there are more rows
     $chats = array();
     while($row = $chatListResult->fetch_assoc()) { 

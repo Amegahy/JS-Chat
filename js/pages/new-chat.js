@@ -32,7 +32,13 @@ window.onload = function() {
      *   Event listeners
      */
     document.getElementsByClassName("submit-users")[0].addEventListener("click", function() {
-        console.log(a);
-    }); // Increase rows on click of btn-load
+        var username = localStorage.getItem("username");
+        checkedUsers.push(username);
+        checkedUsers = checkedUsers.sort().join();
+
+        $.post("php/db_chat-setup.php", { chat_item: checkedUsers }).done(function(data) {
+            window.location.href = "chat.php";
+        });
+    });
 
 }

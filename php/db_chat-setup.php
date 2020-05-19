@@ -19,8 +19,8 @@ include 'db_con.php';
 /*
 *   Convert chat name into ID
 */
-$chat_item = $_POST["chat_item"];
-$chatIdSql = "SELECT * FROM chats WHERE chat_name ='".$chat_item."'";
+$chatName = $_POST["chat_item"];
+$chatIdSql = "SELECT * FROM chats WHERE chat_name ='".$chatName."'";
 $chatIdResult = $conn->query($chatIdSql);
 
 /*
@@ -45,9 +45,7 @@ if ($chatIdResult->num_rows > 0) { // If there are more rows
             /*
             *   Create new row in chat table
             */
-            $chatName = array($_SESSION["user_name"], $chat_item);
-            sort($chatName);
-            $chatName = implode(",",$chatName);
+            echo $chatName;
             $chatName = $conn -> real_escape_string($chatName);
             $createRowSql = "INSERT INTO chats (id, chat_name, users) VALUES ('". $tableID ."','". $chatName ."','". $chatName ."')";
             if ($conn->query($createRowSql) != TRUE) {
@@ -89,33 +87,4 @@ function generateRandomString($length = 10) {
     }
     return $randomString;
 }
-
-
-// $chatName = $_SESSION["user_name"].$_SESSION["chatUser"];
-// $chatNameSql = "SELECT DISTINCT * FROM " . $chatName;
-// $chatNameResult = $conn->query($chatNameSql);
-
-// if (!$chatNameResult->num_rows) { // If the table does not exist
-//     $createSQL = "CREATE TABLE ". $chatName ."(
-//         id INT(255) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-//         name VARCHAR(20) NOT NULL,
-//         time VARCHAR(5) NOT NULL,
-//         message text NOT NULL)";
-//     if ($conn->query($createSQL) === TRUE) {
-//         echo "Table MyGuests created successfully";
-//     } else {
-//         echo "Error creating table: " . $conn->error;
-//     }
-// }
-// echo $createSQL;
-
-/*
-*   Locate chat 
-*/
-// $usrIdResult = $conn->query($usrIdSql);
-// if ($usrIdResult->num_rows > 0) { // If there are more rows
-//     while($row = $usrIdResult->fetch_assoc()) { 
-//         $_SESSION["user_id"] = $row['name'];
-//     }
-// }
 ?>
