@@ -30,8 +30,7 @@ if ($chatIdResult->num_rows > 0) { // If there are more rows
     while($row = $chatIdResult->fetch_assoc()) { 
         $_SESSION["chat_id"] = $row['id'];
         $_SESSION["chat_name"] = $row['chat_name'];
-        $_SESSION["chat_users"] = $row['users'];
-        echo $_SESSION["chat_users"];
+        $_SESSION["chat_users"] = explode(",",$row['users']);
     }
 
 /*
@@ -55,9 +54,7 @@ if ($chatIdResult->num_rows > 0) { // If there are more rows
             }
             $_SESSION["chat_id"] = $tableID;
             $_SESSION["chat_name"] = $chatName;
-            $_SESSION["chat_users"] = $chatName;
-            echo $_SESSION["chat_users"];
-
+            $_SESSION["chat_users"] = explode(",",$chatName);
 
             /*
             *   Create new table for chat

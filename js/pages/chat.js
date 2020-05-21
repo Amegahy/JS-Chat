@@ -26,7 +26,6 @@ window.onload = function() {
     /*
      *   On load functions
      */
-    pull_users(); // Display all users to chat to
     load_msg(); // Pull messages
     document.getElementsByClassName("msg-submit")[0].disabled = true; // Submit button is default disabled
 
@@ -37,5 +36,6 @@ window.onload = function() {
     document.getElementsByClassName("msg-box")[0].addEventListener('keypress', autoSize); // Auto size msg-box
     document.getElementsByClassName("msg-box")[0].addEventListener('keyup', enableSubmit); // Enable submit
     document.getElementsByClassName("msg-submit")[0].addEventListener('click', submitMsg); // Submit message
+    document.getElementsByClassName("add-user")[0].addEventListener("click", add_user_popup); // Add selected users to chat
     document.getElementsByClassName("submit-add-user")[0].addEventListener("click", function() { add_user(checkedUsers) }); // Add selected users to chat
 }

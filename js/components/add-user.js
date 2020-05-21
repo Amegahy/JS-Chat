@@ -1,7 +1,7 @@
 /*----------------------------------------------------------
     Author: Alex Megahy
     Description: Add users to existing chat
-    Contents:   - Increase rows
+    Contents:   - Add users to chat
 ----------------------------------------------------------*/
 
 /*

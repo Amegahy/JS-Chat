@@ -8,8 +8,8 @@
 /*
  *   Pull in users
  */
-function pull_users() {
-    $.post("php/chat-users.php", {}).done(function(data) {
+function pull_users(except) {
+    $.post("php/chat-users.php", { exceptions: except }).done(function(data) {
         display_users(data);
     });
 }

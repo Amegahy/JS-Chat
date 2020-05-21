@@ -24,6 +24,7 @@
     <script src="js/components/submit-msg.js"></script>
     <script src="js/components/chat-box.js"></script>
     <script src="js/components/add-user.js"></script>
+    <script src="js/components/add-users-popup.js"></script>
     <script src="js/pages/chat.js"></script>
     <title>Practice chat</title>
 </head>
