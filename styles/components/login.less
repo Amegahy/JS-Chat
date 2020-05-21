@@ -1,0 +1,31 @@
+/*----------------------------------------------------------
+    Author: Alex Megahy
+    Description: Log in box styling
+    Contents:   - 
+-----------------------------------------------------------*/
+
+@import "../reset.css";
+@import "../site.less";
+
+.login-form {
+    background-color: @login-box-BG;
+
+    label {
+        display: inline;
+        margin-bottom: 0;
+        
+        @media only screen and (max-width: @mobileSize){
+            display: block;
+            margin-bottom: 1rem;
+        }
+    }
+
+    .usr,
+    .pwd {
+        width: 50%;
+        
+        @media only screen and (max-width: @mobileSize){
+            width: 75%;
+        }
+    }
+}

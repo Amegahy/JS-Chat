@@ -23,3 +23,5 @@ if ($usrIdResult->num_rows > 0) { // If there are more rows
     }
 }
 $_SESSION["user_name"] = $username; // Set the username of the signed in user
+
+echo $username;

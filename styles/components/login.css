@@ -1,5 +1,11 @@
 /*----------------------------------------------------------
     Author: Alex Megahy
+    Description: Log in box styling
+    Contents:   - 
+-----------------------------------------------------------*/
+@import "../reset.css";
+/*----------------------------------------------------------
+    Author: Alex Megahy
     Description: Site wide styling variables
     Contents:   - Media queries
                 - Colours
@@ -47,3 +53,26 @@
 /*
 *   Chat
 */
+.login-form {
+  background-color: #f5f5f5;
+}
+.login-form label {
+  display: inline;
+  margin-bottom: 0;
+}
+@media only screen and (max-width: 567px) {
+  .login-form label {
+    display: block;
+    margin-bottom: 1rem;
+  }
+}
+.login-form .usr,
+.login-form .pwd {
+  width: 50%;
+}
+@media only screen and (max-width: 567px) {
+  .login-form .usr,
+  .login-form .pwd {
+    width: 75%;
+  }
+}

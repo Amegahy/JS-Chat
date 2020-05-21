@@ -16,7 +16,8 @@ include 'db-con.php';
 *   Create new list of users
 */
 $newUsers = $_POST['users']; // New users to be added to chat
-$users = $newUsers . "," . $_SESSION["chat_users"];
+$chat_users =  implode(",",$_SESSION["chat_users"]);
+$users = $newUsers . "," . $chat_users;
 
 // Sort string
 $users = explode(',', $users);
@@ -37,7 +38,7 @@ if ($newUsersResult->num_rows > 0) { // If there are more rows
         }else {
             $updateChatSql = "UPDATE chats SET users= '". $users ."' WHERE id = '". $_SESSION["chat_id"] ."'";
         }
-
+        
         if ($conn->query($updateChatSql) === TRUE) {
             echo "New record created successfully";
         } else {

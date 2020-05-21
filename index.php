@@ -20,10 +20,10 @@
     <title>Login</title>
 </head>
 
-<body>
+<body class="vh-100">
     <!-- Log in form -->
-    <div class="container p-3">
-        <form action="php/login.php" method="POST" class="login-form text-center p-5">
+    <div class="container p-3 h-100 d-flex">
+        <form action="php/login.php" method="POST" class="login-form text-center p-5 m-auto w-100">
             <div class="row d-block my-3">
                 <label for="username">Username:</label>
                 <input type="text" name="usr" class="usr" />
