@@ -13,7 +13,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="styles/pages/chat.css">
+    <link rel="stylesheet" href="styles/pages/chat-list.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
@@ -29,7 +29,7 @@
         <h1 class="text-center my-3">Select a user to talk to</h1>
         <div class="container p-3 text-left chat-list">
         </div>
-        <button class="new-chat"><a href = "new-chat.php">Start a new chat</a></button>
+        <button class="new-chat mx-auto d-block">Start a new chat</button>
     </div>
 </body>
 

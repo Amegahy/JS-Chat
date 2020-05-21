@@ -32,21 +32,23 @@
 
 <body>
     <!-- Add users list -->
-    <div class="add-user-popup">
-        <div class="user-list"></div>
-        <button class="submit-add-user">Submit added users</button>
+    <div class="full-screen">
+        <div class="add-user-popup m-auto">
+            <div class="user-list"></div>
+            <button class="submit-add-user">Submit added users</button>
+        </div>
     </div>
     <!-- Chat panel containing messages -->
     <div class="container p-3">
         <h1 class="chat-title text-center my-3"></h1>
-        <button class="add-user">Add user</button>
-        <div class="container p-3 chat-panel">
+        <button class="add-user mr-0">Add user</button>
+        <div class="container my-3 p-3 chat-panel">
         </div>
         <!-- Message submission form -->
         <div class="container p-3">
             <form class="msg-form">
                 <textarea name="msg" class="msg-box p-2" rows="1" placeholder="Enter message...."></textarea>
-                <input type="submit" name="SubmitButton" class="msg-submit" />
+                <input type="submit" name="SubmitButton" class="msg-submit rounded-0" />
             </form>
         </div>
         <!-- Load more button -->

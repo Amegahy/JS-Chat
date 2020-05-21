@@ -1,0 +1,22 @@
+/*----------------------------------------------------------
+    Author: Alex Megahy
+    Description: Chat list item styling
+    Contents:   - Item block
+-----------------------------------------------------------*/
+
+@import "../site.less";
+
+/*
+*   Item block
+*/
+.chat-list-item{
+    background-color: @chat-list-item-BG;
+    border: @chat-list-item-border;
+    font-size: 1.5rem;
+}
+
+@media only screen and (max-width: @mobileSize){
+    .chat-list-item {
+        font-size: 1rem;
+    }
+}

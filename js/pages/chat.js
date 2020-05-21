@@ -28,6 +28,7 @@ window.onload = function() {
      */
     load_msg(); // Pull messages
     document.getElementsByClassName("msg-submit")[0].disabled = true; // Submit button is default disabled
+    document.getElementsByClassName("full-screen")[0].classList.add("d-none"); // Add display:none to popup
 
     /*
      *   Event listeners

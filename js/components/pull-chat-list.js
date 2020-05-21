@@ -29,7 +29,7 @@ function display_chats(response) {
             if (item.includes(username)) { // Remove user's name from list item title
                 item = item.replace(username, "You");
             }
-            displayed_chats += "<div class='row'><div class='col-12 p-3'><h3 class='chat-list-item'>" + item + "</h3></div></div>";
+            displayed_chats += "<div class='row'><div class='col-12 p-3'><h3 class='chat-list-item p-3 rounded-lg'>" + item + "</h3></div></div>";
         })
     }
     document.getElementsByClassName("chat-list")[0].innerHTML = displayed_chats; // Display chats

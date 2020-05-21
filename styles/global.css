@@ -3,16 +3,19 @@
     Description: Global styling
     Contents:   - Body
                 - Buttons
+                - Full screen
 -----------------------------------------------------------*/
 @import "reset.css";
 /*----------------------------------------------------------
     Author: Alex Megahy
     Description: Site wide styling variables
-    Contents:   - Colours
+    Contents:   - Media queries
+                - Colours
                 - Fonts
                 - Global
                 - Log in
                 - Chat
+                - Chat list
 -----------------------------------------------------------*/
 @font-face {
   font-family: 'Poppins';
@@ -36,6 +39,9 @@
   src: local('Roboto'), local('Roboto-Regular'), url(https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Me5Q.ttf) format('truetype');
 }
 /*
+*   Media queries
+*/
+/*
 *   Colours
 */
 /*
@@ -49,6 +55,9 @@
 */
 /*
 *   Chat
+*/
+/*
+*   Chat list
 */
 /*
 *   Body
@@ -67,13 +76,27 @@ button,
 input[type=submit] {
   background-color: #3b5998;
   border: 1px solid #3b5998;
+  border-radius: 20px;
   color: #fff;
-  outline: none;
-  padding: 5px;
+  display: block;
+  margin: 0 auto;
+  outline: none !important;
+  padding: 10px;
 }
 button:hover,
 input[type=submit]:hover {
   background-color: #fff;
   color: #3b5998;
   cursor: pointer;
+}
+/*
+*   Full screen
+*/
+.full-screen {
+  background: #f5f5f5;
+  display: flex;
+  height: 100vh;
+  position: fixed;
+  width: 100vw;
+  z-index: 1;
 }

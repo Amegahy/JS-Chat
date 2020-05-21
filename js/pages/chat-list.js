@@ -3,6 +3,7 @@
     Description: On load function listeners for chat-list.php
     Contents:   - On load functions
                 - Dynamic event listeners      
+                - Event listeners
 ----------------------------------------------------------*/
 
 window.onload = function() {
@@ -16,8 +17,13 @@ window.onload = function() {
      *   Dynamic event listeners
      */
     document.addEventListener('click', function(e) {
-        if (e.target && e.target.className == 'chat-list-item') {
+        if (e.target && e.target.className == 'chat-list-item p-3 rounded-lg') {
             select_chat(e.target);
         }
     });
+
+    /*
+     *   Event listeners
+     */
+    document.getElementsByClassName("new-chat")[0].addEventListener("click", function() { window.location.href = "new-chat.php" });
 }

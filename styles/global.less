@@ -3,6 +3,7 @@
     Description: Global styling
     Contents:   - Body
                 - Buttons
+                - Full screen
 -----------------------------------------------------------*/
 
 @import "reset.css";
@@ -27,13 +28,28 @@ button,
 input[type=submit] {
     background-color: @button-BG;
     border: @button-border;
+    border-radius: @button-radius;
     color: @button-colour;
-    outline: none;
-    padding: 5px;
+    display: block;
+    margin: 0 auto;
+    outline: none !important;
+    padding: 10px;
 
     &:hover {
         background-color: @button-hover-BG;
         color: @button-hover-colour;   
         cursor: pointer;
     }
+}
+
+/*
+*   Full screen
+*/
+.full-screen {
+    background: @full-screen-BG;
+    display: flex;
+    height: 100vh;
+    position: fixed;
+    width: 100vw;
+    z-index: 1;
 }
