@@ -1,9 +1,7 @@
 <!----------------------------------------------------------
     Author: Alex Megahy
     Description: Start new chat with user
-    Contents:   - Load more button
-                - Chat panel containing messages
-                - Message submission form
+    Contents:   - Chat panel containing users
 ----------------------------------------------------------->
 
 <!DOCTYPE html>
@@ -25,7 +23,7 @@
 </head>
 
 <body>
-    <!-- Chat panel containing messages -->
+    <!-- Chat panel containing users -->
     <div class="container p-3">
         <h1 class="text-center my-3">Select a user to talk to</h1>
         <div class="container p-3 text-left user-list">

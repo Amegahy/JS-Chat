@@ -1,6 +1,6 @@
 /*----------------------------------------------------------
     Author: Alex Megahy
-    Description: Select user to chat with
+    Description: Select chat to enter
     Contents:   - Pass chat to DB
 ----------------------------------------------------------*/
 
@@ -15,6 +15,7 @@ function select_chat(chat) {
         chat_item = chat_item.replace("You", username);
     }
     var chatArray = chat_item.split(",");
+
     chat_item = chatArray.sort().join();
 
     $.post("php/chat-setup.php", { chat_item: chat_item }).done(function(data) {

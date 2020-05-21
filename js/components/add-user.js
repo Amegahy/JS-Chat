@@ -11,7 +11,6 @@ function add_user(users) {
     var username = localStorage.getItem("username"); // Username
 
     if (users.length == 0) { // User has not selected any new users
-        console.log("None");
         return;
     } else {
         users = users.sort().toString(); // Sort array for db

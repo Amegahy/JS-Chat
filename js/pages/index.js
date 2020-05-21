@@ -1,8 +1,7 @@
 /*----------------------------------------------------------
     Author: Alex Megahy
     Description: On load function listeners for index.php
-    Contents:   - On load functions
-                - Event listeners                
+    Contents:   - Event listeners                
 ----------------------------------------------------------*/
 
 window.onload = function() {

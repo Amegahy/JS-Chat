@@ -12,6 +12,7 @@ function user_checkbox(user, arr) {
         arr.push(user.value);
     } else { // Else remove as it's unchecked
         var index = arr.indexOf(user.value);
+
         delete arr[index];
     }
     return arr;

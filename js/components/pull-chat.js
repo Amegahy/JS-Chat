@@ -2,15 +2,14 @@
     Author: Alex Megahy
     Description: Retrieve conversation messages from DB
     Contents:   - Interval load messages
-    - Display json objects
-    - Loop through json objects
-    - Unique items in names array
+                - Display json objects
+                - Loop through json objects
+                - Unique items in names array
     ----------------------------------------------------------*/
 
 var rows = 5; // Max default number of rows on screen
 var current_chat = ""; // Stores the current chat json
 var username = localStorage.getItem("username"); // Username 
-var names = []; // List of names for title of chat
 
 /*
  *   Interval load messages
@@ -35,6 +34,7 @@ function display_msg(data) {
     var chat = ""; // Chat that will be displayed
     var parsed = JSON.parse(data); // Parsed JSON response
     var i = parsed.length - 1; // Iterator for json loop
+
     document.getElementsByClassName("chat-title")[0].innerHTML = parsed[0].chat_title; // Assign title
     if (parsed.length == 1) { // Check if there are any messages
         chat = "To start a conversation, send a message";

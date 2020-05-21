@@ -4,6 +4,7 @@
     Contents:   - Load more button
                 - Chat panel containing messages
                 - Message submission form
+                - Load more button
 ----------------------------------------------------------->
 
 <!DOCTYPE html>

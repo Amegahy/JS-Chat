@@ -27,9 +27,9 @@ if ($chatUsersResult->num_rows > 0) { // If there are more rows
     while($row = $chatUsersResult->fetch_assoc()) { 
         $user = $row['firstName']. " ". $row['lastName'];
 
-        if ($exceptions == "NA" && $user != $_SESSION['user_name']){
+        if ($exceptions == "NA" && $user != $_SESSION['user_name']){ // If there are no exceptions and it is not the user
             array_push($users, $user);
-        }elseif ($exceptions == "users" && !in_array($user, $chat_users, TRUE) && $user != $_SESSION['user_name']){
+        }elseif ($exceptions == "users" && !in_array($user, $chat_users, TRUE) && $user != $_SESSION['user_name']){ // Exclude all current chat users and the user
             array_push($users, $user);
         }
         
@@ -37,5 +37,5 @@ if ($chatUsersResult->num_rows > 0) { // If there are more rows
     $response[] = array('users'=> $users); // Add users to response array
 }
 $json = json_encode($response);
-echo $json;
-?>
+
+echo $json; // Echo list of users

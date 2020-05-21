@@ -17,13 +17,15 @@ include 'db-con.php';
 $chatListSql = "SELECT * FROM `chats` WHERE users LIKE '%" . $_SESSION["user_name"] . "%'";
 $chatListResult = $conn->query($chatListSql);
 $response = [];
+
 if ($chatListResult->num_rows > 0) { // If there are more rows
     $chats = array();
+
     while($row = $chatListResult->fetch_assoc()) { 
         array_push($chats, $row['chat_name']);
     }
-    $response[] = array('chats'=> $chats); // Add users to response array
+    $response[] = array('chats'=> $chats); // Add chats to response array
 }
 $json = json_encode($response);
-echo $json;
-?>
+
+echo $json; // Echo back list of chats

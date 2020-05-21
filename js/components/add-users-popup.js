@@ -8,5 +8,5 @@
  *   Display pop up
  */
 function add_user_popup() {
-    pull_users("users"); // Display all users to chat to
+    pull_users("users"); // Display all users except the users in chat
 }

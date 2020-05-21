@@ -16,11 +16,10 @@ include 'db-con.php';
 */
 $usrIdSql = "SELECT firstName, lastName FROM `users` WHERE email = '" . $_POST['usr'] . "'";
 $usrIdResult = $conn->query($usrIdSql);
+
 if ($usrIdResult->num_rows > 0) { // If there are more rows
     while($row = $usrIdResult->fetch_assoc()) { 
         $username = $row['firstName']. " " .$row['lastName'];
     }
 }
-$_SESSION["user_name"] = $username;
-echo $username;
-?>
+$_SESSION["user_name"] = $username; // Set the username of the signed in user

@@ -27,7 +27,6 @@
             <div class="row d-block my-3">
                 <label for="username">Username:</label>
                 <input type="text" name="usr" class="usr" />
-                <!-- Will be changed to username/email -->
             </div>
             <div class="row d-block my-3">
                 <label for="pwd">Password:</label>

@@ -33,9 +33,9 @@ window.onload = function() {
      */
     document.getElementsByClassName("submit-users")[0].addEventListener("click", function() {
         var username = localStorage.getItem("username");
+
         checkedUsers.push(username);
         checkedUsers = checkedUsers.sort().join();
-
         $.post("php/chat-setup.php", { chat_item: checkedUsers }).done(function(data) {
             window.location.href = "chat.php";
         });

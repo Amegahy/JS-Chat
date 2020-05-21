@@ -17,6 +17,8 @@ include 'db-con.php';
 */
 $newUsers = $_POST['users']; // New users to be added to chat
 $users = $newUsers . "," . $_SESSION["chat_users"];
+
+// Sort string
 $users = explode(',', $users);
 sort($users);
 $users = implode(",",$users);
@@ -43,4 +45,3 @@ if ($newUsersResult->num_rows > 0) { // If there are more rows
         }
     }
 }
-?>

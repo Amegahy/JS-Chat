@@ -14,7 +14,6 @@ function submitMsg(event) {
     var user = localStorage.getItem("username");
 
     event.preventDefault();
-
     $.post("php/chat-put.php", { msg: msg, user: user }).done(function(data) {
         form.reset();
         enableSubmit();

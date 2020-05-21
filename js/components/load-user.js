@@ -1,8 +1,8 @@
 /*----------------------------------------------------------
     Author: Alex Megahy
     Description: Load in all users to chat with
-    Contents:   - On load functions           
-                - Event listeners                
+    Contents:   - Pull in users         
+                - Display pulled in users in checkboxes     
 ----------------------------------------------------------*/
 
 /*
@@ -14,6 +14,9 @@ function pull_users(except) {
     });
 }
 
+/*
+ *   Display pulled in users in checkboxes
+ */
 function display_users(data) {
     var parsed = JSON.parse(data);
     var users = parsed[0].users;
@@ -22,5 +25,5 @@ function display_users(data) {
     users.forEach(function(item) {
         displayedUsers += "<input type='checkbox' class='user-list-item' name='" + item + "' value='" + item + "'> <label for='" + item + "'>" + item + "</label>";
     });
-    document.getElementsByClassName("user-list")[0].innerHTML = displayedUsers; // Increase rows on click of btn-load
+    document.getElementsByClassName("user-list")[0].innerHTML = displayedUsers; // Display users
 }
