@@ -9,7 +9,7 @@
  *   Pull in chat list
  */
 function pull_chat_list() {
-    $.post("php/db_chat-list.php", {}).done(function(data) {
+    $.post("php/chat-list.php", {}).done(function(data) {
         display_chats(data);
     });
 }

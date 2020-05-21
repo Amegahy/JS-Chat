@@ -36,7 +36,7 @@ window.onload = function() {
         checkedUsers.push(username);
         checkedUsers = checkedUsers.sort().join();
 
-        $.post("php/db_chat-setup.php", { chat_item: checkedUsers }).done(function(data) {
+        $.post("php/chat-setup.php", { chat_item: checkedUsers }).done(function(data) {
             window.location.href = "chat.php";
         });
     });

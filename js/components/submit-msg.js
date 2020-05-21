@@ -15,7 +15,7 @@ function submitMsg(event) {
 
     event.preventDefault();
 
-    $.post("php/db_chat-put.php", { msg: msg, user: user }).done(function(data) {
+    $.post("php/chat-put.php", { msg: msg, user: user }).done(function(data) {
         form.reset();
         enableSubmit();
     });

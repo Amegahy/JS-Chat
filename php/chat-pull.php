@@ -3,7 +3,7 @@
 Author: Alex Megahy
 Description: Pull messages from the DB
 Contents:   - Include the database connection
-            - Distinct names 
+            - Chat title 
             - Messages
             - Responds with rows
 -----------------------------------------------------------*/
@@ -11,11 +11,20 @@ Contents:   - Include the database connection
 /*
 *   Include the database connection
 */
-include 'db_con.php';
+include 'db-con.php';
 
 /*
-*   Chat name 
+*   Chat title 
 */
+$chatIdSql = "SELECT * FROM chats WHERE id ='". $_SESSION['chat_id'] ."'";
+$chatIdResult = $conn->query($chatIdSql);
+
+if ($chatIdResult->num_rows > 0) { // If there are more rows
+    while($row = $chatIdResult->fetch_assoc()) { 
+        $_SESSION["chat_users"] = $row['users'];
+        $_SESSION["chat_name"] = $row['chat_name'];
+    }
+}
 $response[] = array('chat_title'=> $_SESSION["chat_name"]); // Add names to response array
 
 /*

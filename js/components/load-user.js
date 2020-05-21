@@ -9,7 +9,7 @@
  *   Pull in users
  */
 function pull_users() {
-    $.post("php/db_chat-users.php", {}).done(function(data) {
+    $.post("php/chat-users.php", {}).done(function(data) {
         display_users(data);
     });
 }

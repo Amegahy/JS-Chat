@@ -14,7 +14,7 @@ Contents:   - Include the database connection
 /*
 *   Include the database connection
 */
-include 'db_con.php';
+include 'db-con.php';
 
 /*
 *   Convert chat name into ID
@@ -30,6 +30,8 @@ if ($chatIdResult->num_rows > 0) { // If there are more rows
     while($row = $chatIdResult->fetch_assoc()) { 
         $_SESSION["chat_id"] = $row['id'];
         $_SESSION["chat_name"] = $row['chat_name'];
+        $_SESSION["chat_users"] = $row['users'];
+        echo $_SESSION["chat_users"];
     }
 
 /*
@@ -51,8 +53,11 @@ if ($chatIdResult->num_rows > 0) { // If there are more rows
             if ($conn->query($createRowSql) != TRUE) {
                 echo "Error creating table: " . $conn->error;
             }
-            $_SESSION["chat_name"] = $chatName;
             $_SESSION["chat_id"] = $tableID;
+            $_SESSION["chat_name"] = $chatName;
+            $_SESSION["chat_users"] = $chatName;
+            echo $_SESSION["chat_users"];
+
 
             /*
             *   Create new table for chat
@@ -63,7 +68,7 @@ if ($chatIdResult->num_rows > 0) { // If there are more rows
                         time VARCHAR(5) NOT NULL,
                         message text NOT NULL)";
                     if ($conn->query($createSQL) === TRUE) {
-                        echo "Table MyGuests created successfully";
+                        echo "Table created successfully";
                     } else {
                         echo "Error creating table: " . $conn->error;
                     }

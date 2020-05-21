@@ -17,18 +17,27 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="js/components/load-user.js"></script>
+    <script src="js/components/user-checkbox.js"></script>
     <script src="js/components/load-more.js"></script>
     <script src="js/components/pull-chat.js"></script>
     <script src="js/components/submit-msg.js"></script>
     <script src="js/components/chat-box.js"></script>
+    <script src="js/components/add-user.js"></script>
     <script src="js/pages/chat.js"></script>
     <title>Practice chat</title>
 </head>
 
 <body>
+    <!-- Add users list -->
+    <div class="add-user-popup">
+        <div class="user-list"></div>
+        <button class="submit-add-user">Submit added users</button>
+    </div>
     <!-- Chat panel containing messages -->
     <div class="container p-3">
         <h1 class="chat-title text-center my-3"></h1>
+        <button class="add-user">Add user</button>
         <div class="container p-3 chat-panel">
         </div>
         <!-- Message submission form -->

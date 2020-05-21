@@ -22,7 +22,7 @@ function load_msg() {
         if (rows < 5) { // Reset $rows if too low
             rows = 5;
         }
-        $.post("php/db_chat-pull.php", { rows: rows, user: chatUser }).done(function(data) {
+        $.post("php/chat-pull.php", { rows: rows, user: chatUser }).done(function(data) {
             display_msg(data);
         });
     }, 500);
