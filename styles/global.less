@@ -4,6 +4,7 @@
     Contents:   - Body
                 - Buttons
                 - Full screen
+                - Selected element
 -----------------------------------------------------------*/
 
 @import "reset.css";
@@ -52,4 +53,12 @@ input[type=submit] {
     position: fixed;
     width: 100vw;
     z-index: 1;
+}
+
+/*
+*   Selected element
+*/
+.selected {
+    background-color: @selected-BG !important;
+    color: @selected-color !important;
 }

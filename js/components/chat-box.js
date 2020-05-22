@@ -8,7 +8,8 @@
  *   Auto size chat box 
  */
 function autoSize() {
-    this.style.height = "auto";
-    this.style.padding = "0";
-    this.style.height = this.scrollHeight + "px";
+    var msgBox = document.getElementsByClassName("msg-box")[0];
+    msgBox.style.height = "auto";
+    msgBox.style.padding = "0";
+    msgBox.style.height = msgBox.scrollHeight + "px";
 }

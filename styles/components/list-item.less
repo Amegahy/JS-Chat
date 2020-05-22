@@ -2,6 +2,8 @@
     Author: Alex Megahy
     Description: Chat list item styling
     Contents:   - Item block
+                - Item container
+                - User list item
 -----------------------------------------------------------*/
 
 @import "../site.less";
@@ -9,14 +11,31 @@
 /*
 *   Item block
 */
-.chat-list-item{
-    background-color: @chat-list-item-BG;
-    border: @chat-list-item-border;
+.list-item{
+    background-color: @list-item-BG;
+    border: @list-item-border;
     font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1.2;
 }
 
 @media only screen and (max-width: @mobileSize){
-    .chat-list-item {
+    .list-item {
         font-size: 1rem;
     }
+}
+
+/*
+*   Item container
+*/
+.list-item-container {
+    height: 100%;
+    width: 100%;
+}
+
+/*
+*   User list item
+*/
+.user-list-item {
+    visibility: hidden;
 }

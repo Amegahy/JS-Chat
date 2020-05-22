@@ -12,6 +12,8 @@
     Author: Alex Megahy
     Description: Chat list item styling
     Contents:   - Item block
+                - Item container
+                - User list item
 -----------------------------------------------------------*/
 /*----------------------------------------------------------
     Author: Alex Megahy
@@ -22,7 +24,7 @@
                 - Global
                 - Log in
                 - Chat
-                - Chat list
+                - List item
 -----------------------------------------------------------*/
 @font-face {
   font-family: 'Poppins';
@@ -64,18 +66,33 @@
 *   Chat
 */
 /*
-*   Chat list
+*   List item
 */
 /*
 *   Item block
 */
-.chat-list-item {
+.list-item {
   background-color: #fff;
   border: 1px solid #f5f5f5;
   font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1.2;
 }
 @media only screen and (max-width: 567px) {
-  .chat-list-item {
+  .list-item {
     font-size: 1rem;
   }
+}
+/*
+*   Item container
+*/
+.list-item-container {
+  height: 100%;
+  width: 100%;
+}
+/*
+*   User list item
+*/
+.user-list-item {
+  visibility: hidden;
 }

@@ -4,6 +4,7 @@
     Contents:   - Body
                 - Buttons
                 - Full screen
+                - Selected element
 -----------------------------------------------------------*/
 @import "reset.css";
 /*----------------------------------------------------------
@@ -15,7 +16,7 @@
                 - Global
                 - Log in
                 - Chat
-                - Chat list
+                - List item
 -----------------------------------------------------------*/
 @font-face {
   font-family: 'Poppins';
@@ -57,7 +58,7 @@
 *   Chat
 */
 /*
-*   Chat list
+*   List item
 */
 /*
 *   Body
@@ -99,4 +100,11 @@ input[type=submit]:hover {
   position: fixed;
   width: 100vw;
   z-index: 1;
+}
+/*
+*   Selected element
+*/
+.selected {
+  background-color: #3b5998 !important;
+  color: #fff !important;
 }

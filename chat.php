@@ -33,8 +33,8 @@
 <body>
     <!-- Add users list -->
     <div class="full-screen">
-        <div class="add-user-popup m-auto">
-            <div class="user-list"></div>
+        <div class="container add-user-popup m-auto">
+            <div class="p-3 text-left user-list"></div>
             <button class="submit-add-user">Submit added users</button>
         </div>
     </div>

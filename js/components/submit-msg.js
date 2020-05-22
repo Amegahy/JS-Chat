@@ -17,6 +17,7 @@ function submitMsg(event) {
     $.post("php/chat-put.php", { msg: msg, user: user }).done(function(data) {
         form.reset();
         enableSubmit();
+        autoSize();
     });
 }
 

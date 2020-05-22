@@ -1,21 +1,9 @@
 /*----------------------------------------------------------
     Author: Alex Megahy
-    Description: chat.php styling
-    Contents:   - Imports
------------------------------------------------------------*/
-/*
-*   Imports
-*/
-@import "../reset.css";
-@import "../global.css";
-@import "../components/chat-panel.css";
-@import "../components/chat-msg.css";
-@import "../components/chat-box.css";
-/*----------------------------------------------------------
-    Author: Alex Megahy
-    Description: Add users popup styling
-    Contents:   - Body
-                - Buttons
+    Description: Chat list item styling
+    Contents:   - Item block
+                - Item container
+                - User list item
 -----------------------------------------------------------*/
 /*----------------------------------------------------------
     Author: Alex Megahy
@@ -70,13 +58,6 @@
 /*
 *   List item
 */
-/*----------------------------------------------------------
-    Author: Alex Megahy
-    Description: Chat list item styling
-    Contents:   - Item block
-                - Item container
-                - User list item
------------------------------------------------------------*/
 /*
 *   Item block
 */

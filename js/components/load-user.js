@@ -22,8 +22,10 @@ function display_users(data) {
     var users = parsed[0].users;
     var displayedUsers = ""; // HTML to display
 
-    users.forEach(function(item) {
-        displayedUsers += "<input type='checkbox' class='user-list-item' name='" + item + "' value='" + item + "'> <label for='" + item + "'>" + item + "</label>";
-    });
+    if (users.length > 0) {
+        users.forEach(function(item) {
+            displayedUsers += "<div class='row'><div class='col-12 p-3'><div class='checkbox list-item rounded-lg'><label class='list-item-container p-3'><input type='checkbox' class='user-list-item' value='" + item + "'>" + item + "</label></div></div></div>";
+        });
+    }
     document.getElementsByClassName("user-list")[0].innerHTML = displayedUsers; // Display users
 }

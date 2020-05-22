@@ -23,7 +23,7 @@ window.onload = function() {
      *   Dynamic event listeners
      */
     document.addEventListener('click', function(e) {
-        if (e.target && e.target.className == 'user-list-item') {
+        if (e.target && e.target.className == 'user-list-item') { // If user item is selected
             checkedUsers = user_checkbox(e.target, checkedUsers); // Pass the selected user on to be checked
         }
     });

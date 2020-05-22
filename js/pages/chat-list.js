@@ -17,7 +17,7 @@ window.onload = function() {
      *   Dynamic event listeners
      */
     document.addEventListener('click', function(e) {
-        if (e.target && e.target.className == 'chat-list-item p-3 rounded-lg') {
+        if (e.target && e.target.className == 'list-item p-3 rounded-lg') {
             select_chat(e.target);
         }
     });
