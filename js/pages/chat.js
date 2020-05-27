@@ -13,6 +13,7 @@ window.onload = function() {
      *   Global variables
      */
     var checkedUsers = [];
+    var nnUser = ""; // Set user to be nicknamed
 
     /*
      *   Dynamic event listeners
@@ -24,7 +25,11 @@ window.onload = function() {
         } else if (e.target && e.target.className == 'submit-add-user') {
             add_user(checkedUsers);
         } else if (e.target && e.target.className == 'list-item rounded-lg p-3' && fs.classList.contains("nickname-u")) { // Nickname user
-            alert("Nickname");
+            nnUser = e.target.innerHTML;
+            setUpNickname(e.target.innerHTML);
+        } else if (e.target && e.target.className == 'submit-nn' && fs.classList.contains("nickname-u")) { // Submit user nickname
+            var nn = document.getElementsByClassName("nn-input")[0].value; // Nickname
+            nicknameUser(nnUser, nn)
         }
     });
 
@@ -34,7 +39,6 @@ window.onload = function() {
     load_msg(); // Pull messages
     closePopup(); // Default close pop up
     document.getElementsByClassName("msg-submit")[0].disabled = true; // Submit button is default disabled
-    document.getElementsByClassName("full-screen")[0].classList.add("d-none"); // Add display:none to popup
 
     /*
      *   Event listeners
@@ -43,7 +47,7 @@ window.onload = function() {
     document.getElementsByClassName("msg-box")[0].addEventListener('keyup', enableSubmit); // Enable submit
     document.getElementsByClassName("msg-submit")[0].addEventListener('click', submitMsg); // Submit message
     document.getElementsByClassName("add-user")[0].addEventListener("click", addUserPopup); // Add selected users to chat
-    document.getElementsByClassName("user-nickname-btn")[0].addEventListener("click", nicknameUser); // Add selected users to chat
+    document.getElementsByClassName("user-nickname-btn")[0].addEventListener("click", nicknameUserList); // Add selected users to chat
     document.getElementsByClassName("close-fs")[0].addEventListener("click", closePopup); // Close pop up button
     // Auto size msg-box
     document.getElementsByClassName("msg-box")[0].addEventListener('keyup', autoSize);

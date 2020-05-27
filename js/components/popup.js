@@ -13,12 +13,11 @@ function togglePopup(type) {
     var fs = document.getElementsByClassName("full-screen")[0]; // Full screen 
 
     if (fs.classList.contains("d-none")) { // Toggle popup on
-        fs.classList.remove("d-none");
+        fs.classList = "full-screen";
+        fs.classList.add(type); // Add the type of popup
     } else { // Toggle popup off
-        fs.classList.add("d-none");
-        clearPopup();
+        closePopup();
     }
-    fs.classList.add(type); // Add the type of popup
 }
 
 /*
@@ -26,7 +25,7 @@ function togglePopup(type) {
  */
 function closePopup() {
     var fs = document.getElementsByClassName("full-screen")[0];
-
+    fs.classList = "full-screen";
     fs.classList.add("d-none");
     clearPopup();
 }
@@ -36,5 +35,7 @@ function closePopup() {
  */
 function clearPopup() {
     var cont = document.getElementsByClassName("fs container m-auto")[0]; // Full screen container
+    var fs = document.getElementsByClassName("full-screen")[0];
+
     cont.innerHTML = "";
 }

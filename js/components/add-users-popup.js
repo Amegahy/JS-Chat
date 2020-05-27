@@ -10,6 +10,7 @@
  *   Display pop up
  */
 function addUserPopup() {
+    clearPopup();
     buildUserList(); // Build the space for the user list
     pull_users("users", "checkbox"); // Display all users except the users in chat in checkboxes
 
