@@ -61,6 +61,9 @@
 *   List item
 */
 /*
+*   Full screen 
+*/
+/*
 *   Body
 */
 body {
@@ -100,6 +103,19 @@ input[type=submit]:hover {
   position: fixed;
   width: 100vw;
   z-index: 1;
+}
+.full-screen .close-fs {
+  background: #850202;
+  border-radius: 20px;
+  color: #fff;
+  font-size: 0.7rem;
+  margin: 1rem;
+  padding: 0.5rem;
+  position: absolute;
+  right: 0;
+}
+.full-screen .close-fs:hover {
+  cursor: pointer;
 }
 /*
 *   Selected element

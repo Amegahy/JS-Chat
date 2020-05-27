@@ -17,7 +17,7 @@ window.onload = function() {
     /*
      *   On load functions
      */
-    pull_users("NA"); // Display all users to chat to
+    pull_users("NA", "checkbox"); // Display all users to chat to
 
     /*
      *   Dynamic event listeners

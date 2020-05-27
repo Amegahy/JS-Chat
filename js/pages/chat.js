@@ -18,8 +18,13 @@ window.onload = function() {
      *   Dynamic event listeners
      */
     document.addEventListener('click', function(e) {
-        if (e.target && e.target.className == 'user-list-item') {
+        var fs = document.getElementsByClassName("full-screen")[0]; // Full screen popup
+        if (e.target && e.target.className == 'user-list-item' && fs.classList.contains("add-u")) { // A user has been selected
             checkedUsers = user_checkbox(e.target, checkedUsers); // Pass the selected user on to be checked
+        } else if (e.target && e.target.className == 'submit-add-user') {
+            add_user(checkedUsers);
+        } else if (e.target && e.target.className == 'list-item rounded-lg p-3' && fs.classList.contains("nickname-u")) { // Nickname user
+            alert("Nickname");
         }
     });
 
@@ -27,7 +32,7 @@ window.onload = function() {
      *   On load functions
      */
     load_msg(); // Pull messages
-    pull_users("users"); // Display all users except the users in chat
+    closePopup(); // Default close pop up
     document.getElementsByClassName("msg-submit")[0].disabled = true; // Submit button is default disabled
     document.getElementsByClassName("full-screen")[0].classList.add("d-none"); // Add display:none to popup
 
@@ -37,8 +42,9 @@ window.onload = function() {
     document.getElementsByClassName("btn-load")[0].addEventListener("click", increaseRows); // Increase rows on click of btn-load
     document.getElementsByClassName("msg-box")[0].addEventListener('keyup', enableSubmit); // Enable submit
     document.getElementsByClassName("msg-submit")[0].addEventListener('click', submitMsg); // Submit message
-    document.getElementsByClassName("add-user")[0].addEventListener("click", add_user_popup); // Add selected users to chat
-    document.getElementsByClassName("submit-add-user")[0].addEventListener("click", function() { add_user(checkedUsers) }); // Add selected users to chat
+    document.getElementsByClassName("add-user")[0].addEventListener("click", addUserPopup); // Add selected users to chat
+    document.getElementsByClassName("user-nickname-btn")[0].addEventListener("click", nicknameUser); // Add selected users to chat
+    document.getElementsByClassName("close-fs")[0].addEventListener("click", closePopup); // Close pop up button
     // Auto size msg-box
     document.getElementsByClassName("msg-box")[0].addEventListener('keyup', autoSize);
     document.getElementsByClassName("msg-box")[0].addEventListener('keydown', autoSize);

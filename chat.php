@@ -26,22 +26,28 @@
     <script src="js/components/chat-box.js"></script>
     <script src="js/components/add-user.js"></script>
     <script src="js/components/add-users-popup.js"></script>
+    <script src="js/components/nickname-user.js"></script>
+    <script src="js/components/popup.js"></script>
     <script src="js/pages/chat.js"></script>
     <title>Practice chat</title>
 </head>
 
 <body>
-    <!-- Add users list -->
+    <!-- Full screen pop up -->
     <div class="full-screen">
-        <div class="container add-user-popup m-auto">
-            <div class="p-3 text-left user-list"></div>
-            <button class="submit-add-user">Submit added users</button>
+        <div class="close-fs">X</div>
+        <div class="fs container m-auto">
         </div>
     </div>
-    <!-- Chat panel containing messages -->
     <div class="container p-3">
         <h1 class="chat-title text-center my-3"></h1>
-        <button class="add-user mr-0">Add user</button>
+        <div class="row">
+            <!-- Nickname the users -->
+            <button class="user-nickname-btn ml-0">Nickname users</button>
+            <!-- Nickname the chat -->
+            <button class="chat-nickname-btn mr-0">Nickname chat</button>
+        </div>
+        <!-- Chat panel containing messages -->
         <div class="container my-3 p-3 chat-panel">
         </div>
         <!-- Message submission form -->
@@ -51,9 +57,11 @@
                 <input type="submit" name="SubmitButton" class="msg-submit rounded-0" />
             </form>
         </div>
-        <!-- Load more button -->
         <div class="row">
-            <button type="button" class="btn-load mx-auto">Load More</button>
+            <!-- Load more button -->
+            <button type="button" class="btn-load ml-0">Load More</button>
+            <!-- Add users button -->
+            <button class="add-user mr-0">Add user</button>
         </div>
     </div>
 </body>

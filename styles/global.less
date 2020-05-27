@@ -53,6 +53,21 @@ input[type=submit] {
     position: fixed;
     width: 100vw;
     z-index: 1;
+
+    .close-fs {
+        background: @close-btn-BG;
+        border-radius: 20px;
+        color: @close-btn-colour;
+        font-size: .7rem;
+        margin: 1rem;
+        padding: .5rem;
+        position: absolute;
+        right: 0;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
 }
 
 /*
