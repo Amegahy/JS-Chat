@@ -44,5 +44,6 @@ function setUpNickname(user) {
 function nicknameUser(user, nickname) {
     $.post("php/nickname-user.php", { user: user, nickname: nickname }).done(function(data) {
         console.log(data);
+        closePopup();
     });
 }

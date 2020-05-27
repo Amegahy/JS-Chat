@@ -23,6 +23,7 @@ function load_msg() {
         }
         $.post("php/chat-pull.php", { rows: rows, user: chatUser }).done(function(data) {
             display_msg(data);
+            // console.log(data);
         });
     }, 500);
 }
@@ -49,9 +50,8 @@ function display_msg(data) {
         parsed.forEach(function() {
             if (i > 0) {
                 chat += "<div class='row my-5 ";
-                if (parsed[i].name == username) { // If this is the user's message, add the 'user' class
+                if (parsed[i].name == "You") { // If this is the user's message, add the 'user' class
                     chat += "user";
-                    parsed[i].name = "You";
                 }
                 chat += "'>";
                 chat += "<p class='msg-time mx-2'>" + parsed[i].time + "</p>";
