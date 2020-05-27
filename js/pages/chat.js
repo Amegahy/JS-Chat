@@ -20,7 +20,7 @@ window.onload = function() {
      */
     document.addEventListener('click', function(e) {
         var fs = document.getElementsByClassName("full-screen")[0]; // Full screen popup
-        if (e.target && e.target.className == 'user-list-item' && fs.classList.contains("add-u")) { // A user has been selected
+        if (e.target && e.target.className == 'user-list-item') { // A user has been selected
             checkedUsers = user_checkbox(e.target, checkedUsers); // Pass the selected user on to be checked
         } else if (e.target && e.target.className == 'submit-add-user') {
             add_user(checkedUsers);
@@ -33,6 +33,8 @@ window.onload = function() {
         } else if (e.target && e.target.className == 'submit-cn' && fs.classList.contains("nickname-c")) { // Submit chat nickname
             var cn = document.getElementsByClassName("cn-input")[0].value; // Chat nickname
             submitChatName(cn);
+        } else if (e.target && e.target.classList.contains("list-item") && fs.classList.contains("kick")) { // Kick selected users
+            kickUser(e.target.innerHTML);
         }
     });
 
@@ -50,6 +52,7 @@ window.onload = function() {
     document.getElementsByClassName("msg-box")[0].addEventListener('keyup', enableSubmit); // Enable submit
     document.getElementsByClassName("msg-submit")[0].addEventListener('click', submitMsg); // Submit message
     document.getElementsByClassName("add-user")[0].addEventListener("click", addUserPopup); // Add selected users to chat
+    document.getElementsByClassName("kick-user")[0].addEventListener("click", kickUserPopup); // Kick selected users from chat
     document.getElementsByClassName("user-nickname-btn")[0].addEventListener("click", nicknameUserList); // Nickname user
     document.getElementsByClassName("chat-nickname-btn")[0].addEventListener("click", nicknameChat); // Nickname chat
     document.getElementsByClassName("close-fs")[0].addEventListener("click", closePopup); // Close pop up button

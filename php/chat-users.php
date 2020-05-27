@@ -28,7 +28,9 @@ if ($chatUsersResult->num_rows > 0) { // If there are more rows
             array_push($users, $user);
         }elseif ($exceptions == "users" && !in_array($user, $_SESSION["chat_users"], TRUE) && $user != $_SESSION['user_name']){ // Exclude all current chat users and the user
             array_push($users, $user);
-        }elseif ($exceptions == "notChat" && in_array($user, $_SESSION["chat_users"], TRUE)){ // Exclude all current chat users and the user
+        }elseif ($exceptions == "notChat" && in_array($user, $_SESSION["chat_users"], TRUE)){ // Include all current chat users and the user
+            array_push($users, $user);
+        }elseif ($exceptions == "notChat-U" && in_array($user, $_SESSION["chat_users"], TRUE) && $user != $_SESSION['user_name']){ // Include all current chat users and not the current user
             array_push($users, $user);
         }
         

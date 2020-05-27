@@ -29,6 +29,7 @@
     <script src="js/components/nickname-user.js"></script>
     <script src="js/components/nickname-chat.js"></script>
     <script src="js/components/popup.js"></script>
+    <script src="js/components/kick-user.js"></script>
     <script src="js/pages/chat.js"></script>
     <title>Practice chat</title>
 </head>
