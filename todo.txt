@@ -2,4 +2,3 @@
 - Error messages, more UF
 - Commenting
 - pull-chat used the same loop as pull-chat-user
-- innherhtml rather than attach text node

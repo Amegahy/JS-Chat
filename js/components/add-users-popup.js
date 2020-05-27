@@ -23,9 +23,8 @@ function addUserPopup() {
         } else {
             // Append submit button
             var e = document.createElement("button");
-            var text = document.createTextNode("Submit added users");
+            e.innerHTML = ("Submit added users");
             e.className = "submit-add-user";
-            e.appendChild(text);
             document.getElementsByClassName("fs container m-auto")[0].appendChild(e);
 
             togglePopup("add-u");
