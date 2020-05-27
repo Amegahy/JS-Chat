@@ -43,7 +43,7 @@ function display_msg(data) {
             document.getElementsByClassName("chat-title")[0].innerHTML = parsed[0].chat_title;
         }
         if (parsed.length == 1) { // Check if there are any messages
-            chat = "To start a conversation, send a message";
+            chat = "<h3 class='text-center'>To start a conversation, send a message</h3>";
         } else {
             if (rows > parsed.length) { // Reset $rows if too high
                 rows = parsed.length;
@@ -54,18 +54,17 @@ function display_msg(data) {
              */
             parsed.forEach(function() {
                 if (i > 0) {
+                    parsed[i].msg = parsed[i].msg.replace(/(?:\r\n|\r|\n)/g, '<br>'); // Add in any line breaks needed
+
                     chat += "<div class='row my-5 ";
                     if (parsed[i].name == "You") { // If this is the user's message, add the 'user' class
                         chat += "user";
                     }
-                    chat += "'>";
-                    chat += "<p class='msg-time mx-2'>" + parsed[i].time + "</p>";
+                    chat += "'><p class='msg-time mx-2'>" + parsed[i].time + "</p>"; // Time
                     chat += "<div class='col-8 col-sm-6 col-md-4 p-3 msg'>";
-                    parsed[i].msg = parsed[i].msg.replace(/(?:\r\n|\r|\n)/g, '<br>'); // Add in any line breaks needed
                     chat += "<p class='msg-name'>" + parsed[i].name + "</p>"; // Test the current user name and see if the same, output "you"
-                    chat += "<p>" + parsed[i].msg + "</p>";
-                    i--;
-                    chat += "</div></div>";
+                    chat += "<p>" + parsed[i].msg + "</p></div></div>";
+                    i--; // Iterate back through array of messages
                 }
             });
         }
