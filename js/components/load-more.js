@@ -1,12 +1,16 @@
 /*----------------------------------------------------------
     Author: Alex Megahy
     Description: Load more messages
-    Contents:   - Increase rows
+    Contents:   - Increase rows on top scroll
 ----------------------------------------------------------*/
 
 /*
- *   Increase rows
+ *   Increase rows on top scroll
  */
-function increaseRows() {
-    rows += 5; // Increment the number of rows by 5
+function checkScroll() {
+    var chatPanel = document.getElementsByClassName("chat-panel")[0];
+
+    if (chatPanel.scrollTop == 0) {
+        rows += 5; // Increment the number of rows by 5
+    }
 }

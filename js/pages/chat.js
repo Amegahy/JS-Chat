@@ -29,7 +29,10 @@ window.onload = function() {
             setUpNickname(e.target.innerHTML);
         } else if (e.target && e.target.className == 'submit-nn' && fs.classList.contains("nickname-u")) { // Submit user nickname
             var nn = document.getElementsByClassName("nn-input")[0].value; // Nickname
-            nicknameUser(nnUser, nn)
+            nicknameUser(nnUser, nn);
+        } else if (e.target && e.target.className == 'submit-cn' && fs.classList.contains("nickname-c")) { // Submit chat nickname
+            var cn = document.getElementsByClassName("cn-input")[0].value; // Chat nickname
+            submitChatName(cn);
         }
     });
 
@@ -43,11 +46,12 @@ window.onload = function() {
     /*
      *   Event listeners
      */
-    document.getElementsByClassName("btn-load")[0].addEventListener("click", increaseRows); // Increase rows on click of btn-load
+    document.getElementsByClassName("chat-panel")[0].addEventListener("scroll", checkScroll); // Check scroll
     document.getElementsByClassName("msg-box")[0].addEventListener('keyup', enableSubmit); // Enable submit
     document.getElementsByClassName("msg-submit")[0].addEventListener('click', submitMsg); // Submit message
     document.getElementsByClassName("add-user")[0].addEventListener("click", addUserPopup); // Add selected users to chat
-    document.getElementsByClassName("user-nickname-btn")[0].addEventListener("click", nicknameUserList); // Add selected users to chat
+    document.getElementsByClassName("user-nickname-btn")[0].addEventListener("click", nicknameUserList); // Nickname user
+    document.getElementsByClassName("chat-nickname-btn")[0].addEventListener("click", nicknameChat); // Nickname chat
     document.getElementsByClassName("close-fs")[0].addEventListener("click", closePopup); // Close pop up button
     // Auto size msg-box
     document.getElementsByClassName("msg-box")[0].addEventListener('keyup', autoSize);

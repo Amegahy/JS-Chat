@@ -1,9 +1,9 @@
 <?php
 /*----------------------------------------------------------
     Author: Alex Megahy
-    Description: Log in
+    Description: Nickname user
     Contents:   - Include the database connection
-                - Check log in details with DB
+                - Retrieve user and new nickname
 -----------------------------------------------------------*/
 
 /*
@@ -34,10 +34,3 @@ if ($conn->query($NNSql) === TRUE) {
 } else {
     echo "Error: " . $NNSql . "<br>" . $conn->error;
 }
-
-// if ($conn->query($createSQL) === TRUE) {
-//     echo "Table created successfully";
-// } else {
-//     echo "Error creating table: " . $conn->error;
-// }
-

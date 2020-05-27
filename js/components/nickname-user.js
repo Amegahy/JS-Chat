@@ -42,8 +42,12 @@ function setUpNickname(user) {
  *  Nickname user
  */
 function nicknameUser(user, nickname) {
-    $.post("php/nickname-user.php", { user: user, nickname: nickname }).done(function(data) {
-        console.log(data);
-        closePopup();
-    });
+    if (nickname.length == 0) {
+        alert("Please enter a nickname");
+        return;
+    } else {
+        $.post("php/nickname-user.php", { user: user, nickname: nickname }).done(function(data) {
+            closePopup();
+        });
+    }
 }

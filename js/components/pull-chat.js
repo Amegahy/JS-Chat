@@ -15,15 +15,13 @@ var username = localStorage.getItem("username"); // Username
  *   Interval load messages
  */
 function load_msg() {
-    var chatUser = localStorage.getItem("chat-user"); // Chat selected
 
     setInterval(function() {
         if (rows < 5) { // Reset $rows if too low
             rows = 5;
         }
-        $.post("php/chat-pull.php", { rows: rows, user: chatUser }).done(function(data) {
+        $.post("php/chat-pull.php", { rows: rows }).done(function(data) {
             display_msg(data);
-            // console.log(data);
         });
     }, 500);
 }
@@ -35,8 +33,12 @@ function display_msg(data) {
     var chat = ""; // Chat that will be displayed
     var parsed = JSON.parse(data); // Parsed JSON response
     var i = parsed.length - 1; // Iterator for json loop
+    var chatTitle = document.getElementsByClassName("chat-title")[0].innerHTML;
+    var chatPanel = document.getElementsByClassName("chat-panel")[0];
 
-    document.getElementsByClassName("chat-title")[0].innerHTML = parsed[0].chat_title; // Assign title
+    if (chatTitle != parsed[0].chat_title) { // If new title
+        document.getElementsByClassName("chat-title")[0].innerHTML = parsed[0].chat_title;
+    }
     if (parsed.length == 1) { // Check if there are any messages
         chat = "To start a conversation, send a message";
     } else {
@@ -65,7 +67,11 @@ function display_msg(data) {
         });
     }
     if (chat != current_chat) { // If there are new or changed messages found
-        document.getElementsByClassName("chat-panel")[0].innerHTML = chat;
+        if (current_chat == "") { // If this is the first load chat
+            chatPanel.innerHTML = chat;
+            chatPanel.scrollTop = chatPanel.scrollHeight; // Set the scroll to the bottom of chat panel
+        }
+        chatPanel.innerHTML = chat;
         current_chat = chat;
     }
 }

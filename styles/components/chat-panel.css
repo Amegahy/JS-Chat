@@ -6,11 +6,13 @@
 /*----------------------------------------------------------
     Author: Alex Megahy
     Description: Site wide styling variables
-    Contents:   - Colours
+    Contents:   - Media queries
+                - Colours
                 - Fonts
                 - Global
                 - Log in
                 - Chat
+                - List item
 -----------------------------------------------------------*/
 @font-face {
   font-family: 'Poppins';
@@ -34,6 +36,9 @@
   src: local('Roboto'), local('Roboto-Regular'), url(https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Me5Q.ttf) format('truetype');
 }
 /*
+*   Media queries
+*/
+/*
 *   Colours
 */
 /*
@@ -49,9 +54,17 @@
 *   Chat
 */
 /*
+*   List item
+*/
+/*
+*   Full screen 
+*/
+/*
 *   Panel
 */
 .chat-panel {
   background-color: #fff;
   border: 1px solid #f5f5f5;
+  height: 500px;
+  overflow: auto;
 }

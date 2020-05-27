@@ -27,6 +27,7 @@
     <script src="js/components/add-user.js"></script>
     <script src="js/components/add-users-popup.js"></script>
     <script src="js/components/nickname-user.js"></script>
+    <script src="js/components/nickname-chat.js"></script>
     <script src="js/components/popup.js"></script>
     <script src="js/pages/chat.js"></script>
     <title>Practice chat</title>
@@ -58,10 +59,10 @@
             </form>
         </div>
         <div class="row">
-            <!-- Load more button -->
-            <button type="button" class="btn-load ml-0">Load More</button>
             <!-- Add users button -->
-            <button class="add-user mr-0">Add user</button>
+            <button class="add-user ml-0">Add user</button>
+            <!-- Kick users button -->
+            <button class="kick-user mr-0">Kick user</button>
         </div>
     </div>
 </body>
