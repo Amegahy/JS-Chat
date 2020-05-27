@@ -18,7 +18,7 @@ function addUserPopup() {
      *   Timeout to read for users (Callback)
      */
     setTimeout(function() {
-        if (document.getElementsByClassName("user-list")[0].innerHTML == "") {
+        if (document.getElementsByClassName("user-list-item").length == 0) {
             alert("No users to add");
         } else {
             // Append submit button
