@@ -22,12 +22,15 @@ $chatIdSql = "SELECT * FROM chats WHERE id ='". $_SESSION['chat_id'] ."'";
 $chatIdResult = $conn->query($chatIdSql);
 $response = [];
 
-if ($chatIdResult->num_rows > 0) { // If there are more rows
+if ($chatIdResult->num_rows > 0) { // Chat found
     while($row = $chatIdResult->fetch_assoc()) { 
         $_SESSION["chat_users"] = explode(",",$row['users']); // Set users
         $_SESSION["chat_name"] = $row['chat_name']; // Set chat name
         $chatID = $row['id'];
     }
+}else {
+    echo "No chat found";
+    return;
 }
 
 $response[] = array('chat_title'=> $_SESSION["chat_name"]); // Add chat title to response array

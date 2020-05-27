@@ -64,6 +64,8 @@
             <button class="add-user ml-0">Add user</button>
             <!-- Kick users button -->
             <button class="kick-user mr-0">Kick user</button>
+            <!-- Leave chat button -->
+            <button class="leave-chat mr-0">Leave chat</button>
         </div>
     </div>
 </body>

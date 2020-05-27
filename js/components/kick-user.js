@@ -19,7 +19,8 @@ function kickUserPopup() {
      */
     setTimeout(function() {
         var user = localStorage.getItem("username");
-        if (document.getElementsByClassName("user-list")[0].innerHTML == "") { // Only the user is in the chat
+
+        if (document.getElementsByClassName("list-item").length <= 1) { // Only the user is in the chat
             alert("No users to kick");
         } else {
             togglePopup("kick");
@@ -33,5 +34,11 @@ function kickUserPopup() {
 function kickUser(user) {
     $.post("php/kick-users.php", { users: user }).done(function(data) {
         closePopup();
+
+        if (user == localStorage.getItem("username") && data != "Not enough users") { // If user leaves and there are enough users to leave
+            window.location.href = "chat-list.php";
+        } else if (user != localStorage.getItem("username") && data != "Not enough users") { // Other user has been kicked and there are enough to kick
+            location.reload();
+        }
     });
 }

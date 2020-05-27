@@ -14,6 +14,7 @@ window.onload = function() {
      */
     var checkedUsers = [];
     var nnUser = ""; // Set user to be nicknamed
+    var user = localStorage.getItem("username");
 
     /*
      *   Dynamic event listeners
@@ -48,6 +49,7 @@ window.onload = function() {
     /*
      *   Event listeners
      */
+    document.getElementsByClassName("leave-chat")[0].addEventListener("click", function() { kickUser(user) }); // Leave chat
     document.getElementsByClassName("chat-panel")[0].addEventListener("scroll", checkScroll); // Check scroll
     document.getElementsByClassName("msg-box")[0].addEventListener('keyup', enableSubmit); // Enable submit
     document.getElementsByClassName("msg-submit")[0].addEventListener('click', submitMsg); // Submit message
