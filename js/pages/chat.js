@@ -45,6 +45,7 @@ window.onload = function() {
     load_msg(); // Pull messages
     closePopup(); // Default close pop up
     document.getElementsByClassName("msg-submit")[0].disabled = true; // Submit button is default disabled
+    pullNN(); // Display all users and nicknames
 
     /*
      *   Event listeners

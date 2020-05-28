@@ -64,7 +64,7 @@ if ($chatIdResult->num_rows > 0) { // If there are more rows
             */
             $createSQL = "CREATE TABLE ". $tableID ."(
                         id INT(255) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-                        name VARCHAR(20) NOT NULL,
+                        name VARCHAR(255) NOT NULL,
                         time VARCHAR(5) NOT NULL,
                         message text NOT NULL)";
                     if ($conn->query($createSQL) === TRUE) {

@@ -30,6 +30,7 @@
     <script src="js/components/nickname-chat.js"></script>
     <script src="js/components/popup.js"></script>
     <script src="js/components/kick-user.js"></script>
+    <script src="js/components/pull-nicknames.js"></script>
     <script src="js/pages/chat.js"></script>
     <title>Practice chat</title>
 </head>
@@ -67,6 +68,8 @@
             <!-- Leave chat button -->
             <button class="leave-chat mr-0">Leave chat</button>
         </div>
+        <!-- List of users and their nicknames-->
+        <div class="container user-NN-list"></div>
     </div>
 </body>
 
