@@ -39,6 +39,8 @@ function kickUser(user) {
             window.location.href = "chat-list.php";
         } else if (user != localStorage.getItem("username") && data != "Not enough users") { // Other user has been kicked and there are enough to kick
             location.reload();
+        } else {
+            alert("Not enough users to leave or kick");
         }
     });
 }

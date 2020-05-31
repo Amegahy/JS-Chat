@@ -31,6 +31,7 @@
     <script src="js/components/popup.js"></script>
     <script src="js/components/kick-user.js"></script>
     <script src="js/components/pull-nicknames.js"></script>
+    <script src="js/components/side-menu.js"></script>
     <script src="js/pages/chat.js"></script>
     <title>Practice chat</title>
 </head>
@@ -42,14 +43,27 @@
         <div class="fs container m-auto">
         </div>
     </div>
+    <!-- Side menu -->
+    <div class="side-menu cotainer p-3">
+        <button class="close-menu">X</button>
+        <!-- Nickname the users -->
+        <button class="user-nickname-btn mr-0">Nickname users</button>
+        <!-- Nickname the chat -->
+        <button class="chat-nickname-btn mr-0">Nickname chat</button>
+        <!-- Add users button -->
+        <button class="add-user mr-0">Add user</button>
+        <!-- Kick users button -->
+        <button class="kick-user mr-0">Kick user</button>
+        <!-- Leave chat button -->
+        <button class="leave-chat mr-0">Leave chat</button>
+        <!-- List of users and their nicknames-->
+        <h3 class="mt-5"><u>User nicknames</u></h3>
+        <div class="container user-NN-list"></div>
+    </div>
+    <!-- Open side menu -->
+    <button class="open-menu mr-3 my-2">i</button>
     <div class="container p-3">
         <h1 class="chat-title text-center my-3"></h1>
-        <div class="row">
-            <!-- Nickname the users -->
-            <button class="user-nickname-btn ml-0">Nickname users</button>
-            <!-- Nickname the chat -->
-            <button class="chat-nickname-btn mr-0">Nickname chat</button>
-        </div>
         <!-- Chat panel containing messages -->
         <div class="container my-3 p-3 chat-panel">
         </div>
@@ -60,16 +74,6 @@
                 <input type="submit" name="SubmitButton" class="msg-submit rounded-0" />
             </form>
         </div>
-        <div class="row">
-            <!-- Add users button -->
-            <button class="add-user ml-0">Add user</button>
-            <!-- Kick users button -->
-            <button class="kick-user mr-0">Kick user</button>
-            <!-- Leave chat button -->
-            <button class="leave-chat mr-0">Leave chat</button>
-        </div>
-        <!-- List of users and their nicknames-->
-        <div class="container user-NN-list"></div>
     </div>
 </body>
 

@@ -1,0 +1,90 @@
+/*----------------------------------------------------------
+    Author: Alex Megahy
+    Description: Side menu in chat styling
+    Contents:   - Side menu class
+                    - Close button
+                - Open button
+                - Display side menu
+                - Nicknames
+-----------------------------------------------------------*/
+
+@import "../site.less";
+
+/*
+*   Side menu class
+*/
+.side-menu {
+    background: @side-menu-BG;
+    border-left: @side-menu-border;
+    height: 100vh;
+    opacity: 0;
+    position: fixed;
+    right: 0;
+    visibility: hidden;
+    width: 0;
+    transition: opacity .1s, visibility .1s, width .1s linear;
+
+    & > * {
+        margin-bottom: 1rem;
+        margin-top: 1rem;
+    }
+
+    /*
+    *   Close button
+    */
+    .close-menu {
+        display: inline;
+        left: 0;
+        margin: 0;
+        width: 2.3rem;
+    }
+
+    /*
+    *   Nicknames
+    */
+    h3 {
+        font-size: 1.5rem;
+        font-weight: @nicknames-weight;
+    }
+
+    h4{
+        color: @nicknames-colour;
+        font-size: 1rem;
+        font-weight: @nicknames-weight;
+        margin-left: 1rem;
+    }
+}
+
+/*
+*   Open button
+*/
+.open-menu{
+    width: 2.3rem;
+}
+
+/*
+*   Display side menu
+*/
+.show {
+    opacity: 1;
+    visibility: visible;
+    width: 50%;
+
+    @media only screen and (max-width: @mobileSize) {
+        width: 100%;
+    }
+}
+
+/*
+*   Nicknames
+*/
+.user-NN-list {
+    .row {
+        border-bottom: @nicknames-border;
+    }
+
+    .row,
+    .row > * {
+        margin: 1rem 0;
+    }
+}

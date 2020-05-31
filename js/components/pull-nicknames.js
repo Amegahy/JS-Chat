@@ -19,6 +19,7 @@ function pullNN() {
  */
 function displayNN(data) {
     var parsed = JSON.parse(data); // Parsed JSON response
+    document.getElementsByClassName("container user-NN-list")[0].innerHTML = ""; // Reset container
 
     parsed.forEach(function(item, index) {
         // Creat row

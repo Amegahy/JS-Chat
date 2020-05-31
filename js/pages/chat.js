@@ -45,11 +45,12 @@ window.onload = function() {
     load_msg(); // Pull messages
     closePopup(); // Default close pop up
     document.getElementsByClassName("msg-submit")[0].disabled = true; // Submit button is default disabled
-    pullNN(); // Display all users and nicknames
 
     /*
      *   Event listeners
      */
+    document.getElementsByClassName("open-menu")[0].addEventListener("click", openMenu); // Open side menu
+    document.getElementsByClassName("close-menu")[0].addEventListener("click", closeMenu); // Close side menu
     document.getElementsByClassName("leave-chat")[0].addEventListener("click", function() { kickUser(user) }); // Leave chat
     document.getElementsByClassName("chat-panel")[0].addEventListener("scroll", checkScroll); // Check scroll
     document.getElementsByClassName("msg-box")[0].addEventListener('keyup', enableSubmit); // Enable submit
