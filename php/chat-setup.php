@@ -81,8 +81,8 @@ if ($chatIdResult->num_rows > 0) { // If there are more rows
 *   Generate table ID
 */
 function generateRandomString($length = 10) {
-    $firstCharacter = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $firstCharacter = 'abcdefghijklmnopqrstuvwxyz';
+    $characters = '0123456789' + $firstCharacter;
     $firstCharactersLength = strlen($firstCharacter);
     $charactersLength = strlen($characters);
     $randomString = '';
