@@ -59,7 +59,7 @@ if ($msgResult->num_rows > 0) { // If there are more rows
             /*
             *   Check for user nicknames
             */
-            $checkUsrNNSql = "SELECT * FROM nicknames WHERE chat_name ='". $chatID ."' AND user ='". $name ."'"; // Check if user has a nickname in this chat
+            $checkUsrNNSql = "SELECT * from chat_users WHERE chat_name ='". $chatID ."' AND user ='". $name ."'"; // Check if user has a nickname in this chat
             $checkUsrNNResult = $conn->query($checkUsrNNSql);
 
             if ($checkUsrNNResult->num_rows > 0) { // If the nickname exists

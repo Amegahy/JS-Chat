@@ -63,14 +63,14 @@ if (count($_SESSION["chat_users"]) == 2){ // Not enough users to kick
 /*
 *   Locate user in nicknames table
 */
-$kickNNSearchSql = "SELECT * FROM nicknames WHERE chat_name = '". $chatID ."' AND user = '". $kickUsers ."'";
+$kickNNSearchSql = "SELECT * from chat_users WHERE chat_name = '". $chatID ."' AND user = '". $kickUsers ."'";
 $kickNNSearchResult = $conn->query($kickNNSearchSql);
 
 if ($kickNNSearchResult->num_rows > 0) { // Chat found
     $kickNNSql = "";
 
     while($row = $kickNNSearchResult->fetch_assoc()) { 
-    $kickNNSql = "DELETE FROM nicknames WHERE chat_name = '". $chatID ."' AND user = '". $kickUsers ."'";
+    $kickNNSql = "DELETE from chat_users WHERE chat_name = '". $chatID ."' AND user = '". $kickUsers ."'";
         
         if ($conn->query($kickNNSql) === TRUE) {
             echo "Nickname removed";

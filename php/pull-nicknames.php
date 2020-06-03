@@ -21,7 +21,7 @@ $response = []; // Response array
 foreach ($users as &$user) {
     $username = $user; // User name
     $userNN = ""; // User nickname
-    $userNNSql = "SELECT * FROM nicknames WHERE chat_name = '". $chatID ."' AND user = '". $user ."'";
+    $userNNSql = "SELECT * from chat_users WHERE chat_name = '". $chatID ."' AND user = '". $user ."'";
     $userNNResult = $conn->query($userNNSql);
 
     if ($userNNResult->num_rows > 0) { // User has a nickname

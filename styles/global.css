@@ -17,6 +17,7 @@
                 - Log in
                 - Chat
                 - List item
+                - Side menu
 -----------------------------------------------------------*/
 @font-face {
   font-family: 'Poppins';
@@ -64,6 +65,9 @@
 *   Full screen 
 */
 /*
+*   Side menu
+*/
+/*
 *   Body
 */
 body {
@@ -101,6 +105,7 @@ input[type=submit]:hover {
   display: flex;
   height: 100vh;
   position: fixed;
+  top: 0;
   width: 100vw;
   z-index: 1;
 }

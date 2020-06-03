@@ -17,7 +17,7 @@ include 'db-con.php';
 $user = $_POST['user']; // User
 $nickname = $_POST['nickname']; // User nickname
 $chatId = $_SESSION["chat_id"];
-$checkNNSql = "SELECT * FROM nicknames WHERE chat_name ='". $chatId ."' AND user ='". $user ."'"; // Check if user exists in table already
+$checkNNSql = "SELECT * from chat_users WHERE chat_name ='". $chatId ."' AND user ='". $user ."'"; // Check if user exists in table already
 $checkNNResult = $conn->query($checkNNSql);
 $NNSql = ""; // Set/Update nickname SQL 
 
@@ -26,7 +26,7 @@ if ($checkNNResult->num_rows > 0) { // If there are more rows
         $NNSql = "UPDATE nicknames SET nickname = '". $nickname ."' WHERE id = '". $row['id'] ."'"; // Update nickname
     }
 } else {
-    $NNSql = "INSERT INTO nicknames (chat_name, user, nickname) VALUES ('$chatId', '$user', '$nickname')";
+    $NNSql = "INSERT into chat_users (chat_name, user, nickname) VALUES ('$chatId', '$user', '$nickname')";
 }
 
 if ($conn->query($NNSql) === TRUE) {

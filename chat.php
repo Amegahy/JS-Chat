@@ -32,6 +32,7 @@
     <script src="js/components/kick-user.js"></script>
     <script src="js/components/pull-nicknames.js"></script>
     <script src="js/components/side-menu.js"></script>
+    <script src="js/components/icon-colour.js"></script>
     <script src="js/pages/chat.js"></script>
     <title>Practice chat</title>
 </head>
@@ -46,6 +47,8 @@
     <!-- Side menu -->
     <div class="side-menu cotainer p-3">
         <button class="close-menu">X</button>
+        <!-- Colour select -->
+        <button class="user-colour mr-0">User icon colour</button>
         <!-- Nickname the users -->
         <button class="user-nickname-btn mr-0">Nickname users</button>
         <!-- Nickname the chat -->
