@@ -48,6 +48,7 @@ function nicknameUser(user, nickname) {
     } else {
         $.post("php/nickname-user.php", { user: user, nickname: nickname }).done(function(data) {
             closePopup();
+            location.reload();
         });
     }
 }

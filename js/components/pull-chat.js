@@ -22,6 +22,7 @@ function load_msg() {
         }
         $.post("php/chat-pull.php", { rows: rows }).done(function(data) {
             display_msg(data);
+            console.log(data);
         });
     }, 500);
 }
@@ -61,7 +62,7 @@ function display_msg(data) {
                         chat += "user";
                     }
                     chat += "'><p class='msg-time mx-2'>" + parsed[i].time + "</p>"; // Time
-                    chat += "<div class='col-8 col-sm-6 col-md-4 p-3 msg'>";
+                    chat += "<div class='col-8 col-sm-6 col-md-4 p-3 msg " + parsed[i].col + "'>";
                     chat += "<p class='msg-name'>" + parsed[i].name + "</p>"; // Test the current user name and see if the same, output "you"
                     chat += "<p>" + parsed[i].msg + "</p></div></div>";
                     i--; // Iterate back through array of messages

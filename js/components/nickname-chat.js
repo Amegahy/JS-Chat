@@ -42,6 +42,7 @@ function submitChatName(newChat) {
     } else {
         $.post("php/nickname-chat.php", { nickname: newChat }).done(function(data) {
             closePopup();
+            location.reload();
         });
     }
 }

@@ -21,9 +21,9 @@ $checkNNSql = "SELECT * from chat_users WHERE chat_name ='". $chatId ."' AND use
 $checkNNResult = $conn->query($checkNNSql);
 $NNSql = ""; // Set/Update nickname SQL 
 
-if ($checkNNResult->num_rows > 0) { // If there are more rows
+if ($checkNNResult->num_rows > 0) { // If the user already has a nickname
     while($row = $checkNNResult->fetch_assoc()) { 
-        $NNSql = "UPDATE nicknames SET nickname = '". $nickname ."' WHERE id = '". $row['id'] ."'"; // Update nickname
+        $NNSql = "UPDATE chat_users SET nickname = '". $nickname ."' WHERE id = '". $row['id'] ."'"; // Update nickname
     }
 } else {
     $NNSql = "INSERT into chat_users (chat_name, user, nickname) VALUES ('$chatId', '$user', '$nickname')";

@@ -120,6 +120,7 @@
   opacity: 1;
   visibility: visible;
   width: 50%;
+  z-index: 1;
 }
 @media only screen and (max-width: 567px) {
   .show {

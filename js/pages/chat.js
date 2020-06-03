@@ -15,6 +15,7 @@ window.onload = function() {
     var checkedUsers = [];
     var nnUser = ""; // Set user to be nicknamed
     var user = localStorage.getItem("username");
+    var temp = ""; // Variable for temp storage
 
     /*
      *   Dynamic event listeners
@@ -37,7 +38,10 @@ window.onload = function() {
         } else if (e.target && e.target.classList.contains("list-item") && fs.classList.contains("kick")) { // Kick selected users
             kickUser(e.target.innerHTML);
         } else if (e.target && e.target.classList.contains("list-item") && fs.classList.contains("colour")) { // Change user icon colour
-            console.log("Click");
+            iconColour(e.target.innerHTML);
+            temp = e.target.innerHTML;
+        } else if (e.target && e.target.classList.contains("icon") && fs.classList.contains("colour")) { // Submit user icon colour
+            submitIconCol(temp, e.target.classList[2]);
         }
     });
 
@@ -53,7 +57,7 @@ window.onload = function() {
      */
     document.getElementsByClassName("open-menu")[0].addEventListener("click", openMenu); // Open side menu
     document.getElementsByClassName("close-menu")[0].addEventListener("click", closeMenu); // Close side menu
-    document.getElementsByClassName("user-colour")[0].addEventListener("click", iconColour); // Choose user icon colour
+    document.getElementsByClassName("user-colour")[0].addEventListener("click", iconColPopup); // Choose user icon colour
     document.getElementsByClassName("leave-chat")[0].addEventListener("click", function() { kickUser(user) }); // Leave chat
     document.getElementsByClassName("chat-panel")[0].addEventListener("scroll", checkScroll); // Check scroll
     document.getElementsByClassName("msg-box")[0].addEventListener('keyup', enableSubmit); // Enable submit

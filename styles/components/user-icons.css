@@ -1,12 +1,9 @@
 /*----------------------------------------------------------
     Author: Alex Megahy
-    Description: Global styling
-    Contents:   - Body
-                - Buttons
-                - Full screen
-                - Selected element
+    Description: User icon colour blocks
+    Contents:   - Colour blocks
+                - Colours
 -----------------------------------------------------------*/
-@import "reset.css";
 /*----------------------------------------------------------
     Author: Alex Megahy
     Description: Site wide styling variables
@@ -68,69 +65,48 @@
 *   Side menu
 */
 /*
-*   Body
+*   Colour icons
 */
-body {
-  background-color: #fff;
+.icon {
+  border-radius: 20px;
+  height: 40px;
+  width: 40px;
+}
+.icon:hover {
+  cursor: pointer;
+}
+/*
+*   Colours
+*/
+.red {
+  background-color: #850202;
+  color: #fff;
+}
+.purple {
+  background-color: #340a82;
+  color: #fff;
+}
+.orange {
+  background-color: #ffa305;
   color: #000;
 }
-body > * {
-  box-sizing: border-box;
+.yellow {
+  background-color: #f2e63a;
+  color: #000;
 }
-/*
-*   Buttons
-*/
-button,
-input[type=submit] {
-  background-color: #334d84;
-  border: 1px solid #334d84;
-  border-radius: 20px;
+.green {
+  background-color: #185c00;
   color: #fff;
-  display: block;
-  margin: 0 auto;
-  outline: none !important;
-  padding: 10px;
 }
-button:hover,
-input[type=submit]:hover {
-  background-color: #fff;
-  color: #334d84;
-  cursor: pointer;
-}
-/*
-*   Full screen
-*/
-.full-screen {
-  background: #f5f5f5;
-  display: flex;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  width: 100vw;
-  z-index: 2;
-}
-.full-screen .close-fs {
-  background: #850202;
-  border-radius: 20px;
+.brown {
+  background-color: #714d13;
   color: #fff;
-  font-size: 0.7rem;
-  margin: 1rem;
-  padding: 0.5rem;
-  position: absolute;
-  right: 0;
 }
-.full-screen .close-fs:hover {
-  cursor: pointer;
+.pink {
+  background-color: #ff85c4;
+  color: #000;
 }
-.fs {
-  background: #fff;
-  border-radius: 20px;
-  padding: 1rem;
-}
-/*
-*   Selected element
-*/
-.selected {
-  background-color: #334d84 !important;
-  color: #fff !important;
+.acqua {
+  background-color: #16c496;
+  color: #000;
 }

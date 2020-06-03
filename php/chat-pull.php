@@ -51,13 +51,14 @@ if ($msgResult->num_rows > 0) { // If there are more rows
     while($row = $msgResult->fetch_assoc()) { 
         $name=$row['name']; 
         $time=$row['time']; 
-        $msg=$row['message']; 
+        $msg=$row['message'];
+        $colour=""; 
 
         if ($name == $user){ // If this is the current user
             $name = "You";
         }else {
             /*
-            *   Check for user nicknames
+            *   Check for user nicknames and icon colours
             */
             $checkUsrNNSql = "SELECT * from chat_users WHERE chat_name ='". $chatID ."' AND user ='". $name ."'"; // Check if user has a nickname in this chat
             $checkUsrNNResult = $conn->query($checkUsrNNSql);
@@ -65,11 +66,12 @@ if ($msgResult->num_rows > 0) { // If there are more rows
             if ($checkUsrNNResult->num_rows > 0) { // If the nickname exists
                 while($row = $checkUsrNNResult->fetch_assoc()) { 
                     $name=$row['nickname']; 
+                    $colour=$row['colour'];
                 }
             }
         }
 
-        $response[] = array('name'=> $name, 'time'=> $time, 'msg'=> $msg);
+        $response[] = array('name'=> $name, 'time'=> $time, 'msg'=> $msg, 'col'=> $colour);
     } 
 }
 $json = json_encode($response);
