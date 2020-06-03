@@ -82,7 +82,7 @@ if ($chatIdResult->num_rows > 0) { // If there are more rows
 */
 function generateRandomString($length = 10) {
     $firstCharacter = 'abcdefghijklmnopqrstuvwxyz';
-    $characters = '0123456789' + $firstCharacter;
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyz';
     $firstCharactersLength = strlen($firstCharacter);
     $charactersLength = strlen($characters);
     $randomString = '';

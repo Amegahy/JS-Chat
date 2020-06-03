@@ -22,6 +22,7 @@ window.onload = function() {
      */
     document.addEventListener('click', function(e) {
         var fs = document.getElementsByClassName("full-screen")[0]; // Full screen popup
+
         if (e.target && e.target.className == 'user-list-item') { // A user has been selected
             checkedUsers = user_checkbox(e.target, checkedUsers); // Pass the selected user on to be checked
         } else if (e.target && e.target.className == 'submit-add-user') {

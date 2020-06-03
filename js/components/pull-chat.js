@@ -22,7 +22,6 @@ function load_msg() {
         }
         $.post("php/chat-pull.php", { rows: rows }).done(function(data) {
             display_msg(data);
-            console.log(data);
         });
     }, 500);
 }

@@ -12,7 +12,7 @@
 function iconColPopup() {
     clearPopup();
     buildUserList(); // Build the space for the user list
-    pull_users("notChat", "default"); // Display all users bar those not in the chat
+    pull_users("notChat-unblocked", "default"); // Display all users bar those not in the chat
     togglePopup("colour");
 }
 

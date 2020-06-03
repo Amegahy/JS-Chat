@@ -19,17 +19,31 @@
     <script src="js/components/load-user.js"></script>
     <script src="js/components/user-checkbox.js"></script>
     <script src="js/components/select-chat.js"></script>
+    <script src="js/components/block-users.js"></script>
+    <script src="js/components/popup.js"></script>
+    <script src="js/components/add-users-popup.js"></script>
+    <script src="js/components/load-user.js"></script>
     <script src="js/pages/new-chat.js"></script>
     <title>New chat</title>
 </head>
 
 <body>
+    <!-- Full screen pop up -->
+    <div class="full-screen">
+        <div class="close-fs">X</div>
+        <div class="fs container m-auto">
+        </div>
+    </div>
     <!-- Chat panel containing users -->
     <div class="container p-3">
         <h1 class="text-center my-3">Select a user to talk to</h1>
         <div class="container p-3 text-left user-list">
         </div>
-        <button class="submit-users">Start chat</button>
+        <div class="row mx-0">
+            <button class="submit-users ml-0">Start chat</button>
+            <button class="block-users mr-0">Block user</button>
+            <button class="unblock-users mr-0">Unblock user</button>
+        </div>
     </div>
 </body>
 

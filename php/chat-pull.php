@@ -2,7 +2,8 @@
 /*----------------------------------------------------------
 Author: Alex Megahy
 Description: Pull messages and chat title from the DB
-Contents:   - Include the database connection
+Contents:   - Includes
+            - Search for blocked users 
             - Chat title 
             - Messages
             - Responds with rows
@@ -10,9 +11,28 @@ Contents:   - Include the database connection
 -----------------------------------------------------------*/
 
 /*
-*   Include the database connection
+*   Includes
 */
 include 'db-con.php';
+include 'drop-blocked-chats.php';
+
+/*
+*   Search for blocked users 
+*/
+$username = $_SESSION['user_name'];
+$blocked = array(); // Array of blocked users
+$searchBlockedSql = "SELECT * FROM blocked WHERE blocker = '". $username ."' OR blocked = '". $username ."'";
+$searchBlockedResult = $conn->query($searchBlockedSql);
+
+if ($searchBlockedResult->num_rows > 0) { // If there are blocked users
+    while($row = $searchBlockedResult->fetch_assoc()) { 
+        if($row['blocker'] == $username){ // If user blocked another
+            array_push($blocked, $row['blocked']);
+        } else if ($row['blocked'] == $username){ // If user has been blocked, don't show blocker
+            array_push($blocked, $row['blocker']);
+        }
+    }
+}
 
 /*
 *   Chat title 
@@ -24,9 +44,12 @@ $response = [];
 
 if ($chatIdResult->num_rows > 0) { // Chat found
     while($row = $chatIdResult->fetch_assoc()) { 
-        $_SESSION["chat_users"] = explode(",",$row['users']); // Set users
+        $users = explode(",",$row['users']);
+        $_SESSION["chat_users"] = $users; // Set users
         $_SESSION["chat_name"] = $row['chat_name']; // Set chat name
         $chatID = $row['id'];
+
+        dropBlockedChat($conn, $users, $chatID); // Remove any chats with just blocked users
     }
 }else {
     echo "No chat found";
@@ -56,6 +79,8 @@ if ($msgResult->num_rows > 0) { // If there are more rows
 
         if ($name == $user){ // If this is the current user
             $name = "You";
+        }else if (in_array($name, $blocked) && $name != "You"){
+            $name = "Unidentified user";
         }else {
             /*
             *   Check for user nicknames and icon colours
