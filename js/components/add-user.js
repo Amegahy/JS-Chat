@@ -15,7 +15,12 @@ function add_user(users) {
     } else {
         users = users.sort().toString(); // Sort array for db
         $.post("php/add-users.php", { users: users }).done(function(data) {
-            location.reload();
+            // Display response
+            if (data.substr(-17) == "added to the chat") {
+                displayAlert("success", data);
+            } else {
+                displayAlert("error", data);
+            }
         });
     }
 }

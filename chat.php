@@ -33,6 +33,7 @@
     <script src="js/components/pull-nicknames.js"></script>
     <script src="js/components/side-menu.js"></script>
     <script src="js/components/icon-colour.js"></script>
+    <script src="js/components/alert.js"></script>
     <script src="js/pages/chat.js"></script>
     <title>Practice chat</title>
 </head>

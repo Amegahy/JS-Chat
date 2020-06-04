@@ -1,0 +1,72 @@
+/*----------------------------------------------------------
+    Author: Alex Megahy
+    Description: Alerts
+    Contents:   - Main alert
+                    - Close alert
+                - Display alert
+                - Success
+                - Error
+-----------------------------------------------------------*/
+
+@import "../site.less";
+
+/*
+*   Main alert
+*/
+.alert {
+    margin: 0 auto;
+    max-height: 0;
+    padding: 0;
+    transition: max-height .5s, padding .5s, opacity .7s linear;
+    width: 50%;
+    z-index: 3;
+
+    * {
+        opacity: 0;
+    }
+    
+    @media only screen and (max-width: @mobileSize){
+        width: 100%;
+    }
+
+    /*
+    *   Close alert
+    */
+    .close-alert {
+        display: flex;
+        font-size: 13px;
+        margin-right: 5px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: fit-content;
+    }
+}
+
+/*
+*   Display alert
+*/
+.display-alert{
+    max-height: fit-content;
+    padding: 1rem;
+
+    * {
+        opacity: 1;
+    }
+}
+
+/*
+*   Success
+*/
+.success {
+    background-color: @success;
+    color: @black;
+}
+
+/*
+*   Error
+*/
+.error {
+    background-color: @error;
+    color: @white;
+}

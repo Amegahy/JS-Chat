@@ -31,16 +31,14 @@ $newUsersSql = "SELECT * FROM `chats` WHERE id = '". $_SESSION["chat_id"] ."'";
 $newUsersResult = $conn->query($newUsersSql);
 
 if ($newUsersResult->num_rows > 0) { // If there are more rows
-    while($row = $newUsersResult->fetch_assoc()) { 
-        
+    while($row = $newUsersResult->fetch_assoc()) {
         if ($row['nicknamed'] == 0) { // If chat is not nicknamed
             $updateChatSql = "UPDATE chats SET chat_name = '". $users ."', users= '". $users ."' WHERE id = '". $_SESSION["chat_id"] ."'";
         }else {
             $updateChatSql = "UPDATE chats SET users= '". $users ."' WHERE id = '". $_SESSION["chat_id"] ."'";
         }
-        
         if ($conn->query($updateChatSql) === TRUE) {
-            echo "New record created successfully";
+            echo $newUsers . " added to the chat";
         } else {
             echo "Error: " . $updateChatSql . "<br>" . $conn->error;
         }

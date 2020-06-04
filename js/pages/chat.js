@@ -43,6 +43,8 @@ window.onload = function() {
             temp = e.target.innerHTML;
         } else if (e.target && e.target.classList.contains("icon") && fs.classList.contains("colour")) { // Submit user icon colour
             submitIconCol(temp, e.target.classList[2]);
+        } else if (e.target && e.target.className == 'close-alert') { // Close alert
+            closeAlert();
         }
     });
 
