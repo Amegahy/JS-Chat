@@ -14,9 +14,12 @@
 *   Main alert
 */
 .alert {
+    left: 25%;
     margin: 0 auto;
     max-height: 0;
     padding: 0;
+    position: fixed;
+    top: 0;
     transition: max-height .5s, padding .5s, opacity .7s linear;
     width: 50%;
     z-index: 3;
@@ -26,6 +29,7 @@
     }
     
     @media only screen and (max-width: @mobileSize){
+        left: 0;
         width: 100%;
     }
 

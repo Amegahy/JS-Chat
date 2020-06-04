@@ -23,6 +23,7 @@
     <script src="js/components/popup.js"></script>
     <script src="js/components/add-users-popup.js"></script>
     <script src="js/components/load-user.js"></script>
+    <script src="js/components/alert.js"></script>
     <script src="js/pages/new-chat.js"></script>
     <title>New chat</title>
 </head>

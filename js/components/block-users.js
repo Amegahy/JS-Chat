@@ -33,6 +33,10 @@ function toggleBlockUser(blocked) {
     var username = localStorage.getItem("username");
 
     $.post("php/block-users.php", { user: username, blocked: blocked }).done(function(data) {
-        location.reload();
+        if (data.substr(-7) == "blocked") {
+            displayAlert("success", data);
+        } else {
+            displayAlert("error", data);
+        }
     });
 }

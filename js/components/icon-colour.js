@@ -51,6 +51,10 @@ function iconColour(user) {
  */
 function submitIconCol(user, colour) {
     $.post("php/icon-colour.php", { user: user, colour: colour }).done(function(data) {
-        location.reload();
+        if (data.substr(-22) == "'s icon colour updated") {
+            displayAlert("success", data);
+        } else {
+            displayAlert("error", data);
+        }
     });
 }

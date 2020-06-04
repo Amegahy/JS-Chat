@@ -36,7 +36,10 @@ function displayAlert(type, message) {
  *   Remove alert
  */
 function closeAlert() {
-    if (document.getElementsByClassName("alert")[0] != null) { // Alert has not been closed already
+    var alertBox = document.getElementsByClassName("alert")[0];
+    if (alertBox != null && alertBox.classList.contains("success")) { // Alert has not been closed already
         location.reload();
+    } else if (alertBox != null && alertBox.classList.contains("error")) {
+        //        document.body.removeChild(document.body.childNodes[0]);
     }
 }

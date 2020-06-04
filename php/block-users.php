@@ -26,12 +26,14 @@ $blockResult = $conn->query($blockSql);
 
 if ($blockResult->num_rows > 0) { // If there is aleardy a block
     $updateBlockSql = "DELETE FROM `blocked` WHERE blocker = '". $user ."' AND blocked = '". $blocked ."'"; // Unblock user
+    echo $blocked . " has been unblocked";
 } else { // The user has not been blocked before
     $updateBlockSql = "INSERT into `blocked` (blocker, blocked) VALUES ('". $user ."','". $blocked ."')";
+    echo $blocked . " has been blocked";
 }
 
 if ($conn->query($updateBlockSql) === TRUE) {
-    echo "Block updated";
+    return;
 } else {
     echo "Error: " . $updateBlockSql . "<br>" . $conn->error;
 }

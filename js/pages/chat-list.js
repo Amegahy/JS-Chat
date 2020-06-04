@@ -19,6 +19,8 @@ window.onload = function() {
     document.addEventListener('click', function(e) {
         if (e.target && e.target.className == 'list-item p-3 rounded-lg') {
             select_chat(e.target);
+        } else if (e.target && e.target.className == 'close-alert') { // Close alert
+            closeAlert();
         }
     });
 

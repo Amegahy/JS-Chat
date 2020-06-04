@@ -30,7 +30,7 @@ if ($checkColResult->num_rows > 0) { // If the user already has a nickname
 }
 
 if ($conn->query($ColSql) === TRUE) {
-    echo "Icon colour updated";
+    echo $user . "'s icon colour updated";
 } else {
     echo "Error: " . $ColSql . "<br>" . $conn->error;
 }
