@@ -19,7 +19,7 @@ function addUserPopup() {
      */
     setTimeout(function() {
         if (document.getElementsByClassName("user-list-item").length == 0) {
-            alert("No users to add");
+            displayAlert("error", "No users to add")
         } else {
             // Append submit button
             var e = document.createElement("button");

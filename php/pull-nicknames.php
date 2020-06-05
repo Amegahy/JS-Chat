@@ -24,9 +24,14 @@ foreach ($users as &$user) {
     $userNNSql = "SELECT * from chat_users WHERE chat_name = '". $chatID ."' AND user = '". $user ."'";
     $userNNResult = $conn->query($userNNSql);
 
-    if ($userNNResult->num_rows > 0) { // User has a nickname
-        while($row = $userNNResult->fetch_assoc()) { 
-            $userNN = $row['nickname'];
+    if (!$conn -> query($userNNSql)) { // Test for errors
+        echo("Error: " . $conn -> error);
+        exit;
+    } else {
+        if ($userNNResult->num_rows > 0) { // User has a nickname
+            while($row = $userNNResult->fetch_assoc()) { 
+                $userNN = $row['nickname'];
+            }
         }
     }
     $response[] = array('name'=> $username, 'nn'=> $userNN);

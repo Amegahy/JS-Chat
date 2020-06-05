@@ -29,8 +29,6 @@ $msgSubmitSql = "INSERT INTO " . $_SESSION["chat_id"] . " (name, time, message) 
 /*
 *   Response
 */
-if ($conn->query($msgSubmitSql) === TRUE) {
-    echo "New record created successfully";
-} else {
+if ($conn->query($msgSubmitSql) != TRUE) {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }

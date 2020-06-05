@@ -10,7 +10,11 @@
  */
 function pullNN() {
     $.post("php/pull-nicknames.php").done(function(data) {
-        displayNN(data);
+        if (data.substr(0, 10) != "[{\"name\":\"") { // Valid response
+            displayAlert("error", data);
+        } else {
+            displayNN(data);
+        }
     });
 }
 

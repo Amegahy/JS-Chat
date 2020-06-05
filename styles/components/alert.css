@@ -122,7 +122,8 @@
 /*
 *   Error
 */
-.error {
+.error,
+.fatal {
   background-color: #a31000;
   color: #fff;
 }

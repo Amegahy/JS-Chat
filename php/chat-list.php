@@ -19,18 +19,23 @@ $chatListSql = "SELECT * FROM `chats` WHERE users LIKE '%" . $_SESSION["user_nam
 $chatListResult = $conn->query($chatListSql);
 $response = [];
 
-if ($chatListResult->num_rows > 0) { // If there are more rows
-    $chats = array();
-
-    while($row = $chatListResult->fetch_assoc()) { 
-        $users = explode(",",$row['users']);
-        $chatID = $row['id'];
-
-        dropBlockedChat($conn, $users, $chatID); // Remove any chats with just blocked users
-        array_push($chats, $row['chat_name']);
+if (!$conn -> query($chatListSql)) { // Test for errors
+    echo("Error: " . $conn -> error);
+    exit;
+} else {
+    if ($chatListResult->num_rows > 0) { // If there are chats
+        $chats = array();
+    
+        while($row = $chatListResult->fetch_assoc()) { 
+            $users = explode(",",$row['users']);
+            $chatID = $row['id'];
+    
+            dropBlockedChat($conn, $users, $chatID); // Remove any chats with just blocked users
+            array_push($chats, $row['chat_name']);
+        }
+        $response[] = array('chats'=> $chats); // Add chats to response array
+        echo json_encode($response);
+    } else { // No chats found
+        echo "No chats found";
     }
-    $response[] = array('chats'=> $chats); // Add chats to response array
 }
-$json = json_encode($response);
-
-echo $json; // Echo back list of chats

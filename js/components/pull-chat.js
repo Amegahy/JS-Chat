@@ -15,13 +15,16 @@ var username = localStorage.getItem("username"); // Username
  *   Interval load messages
  */
 function load_msg() {
-
     setInterval(function() {
         if (rows < 5) { // Reset $rows if too low
             rows = 5;
         }
         $.post("php/chat-pull.php", { rows: rows }).done(function(data) {
-            display_msg(data);
+            if (data.substr(0, 16) != "[{\"chat_title\":\"" && data != "No chat found") { // Valid responses
+                displayAlert("error", data);
+            } else {
+                display_msg(data);
+            }
         });
     }, 500);
 }

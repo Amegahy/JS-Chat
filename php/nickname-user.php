@@ -30,7 +30,7 @@ if ($checkNNResult->num_rows > 0) { // If the user already has a nickname
 }
 
 if ($conn->query($NNSql) === TRUE) {
-    echo "Nickname updated";
+    echo $user . " nicknamed " . $nickname;
 } else {
     echo "Error: " . $NNSql . "<br>" . $conn->error;
 }

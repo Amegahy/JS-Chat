@@ -9,6 +9,12 @@
  *   Display alert
  */
 function displayAlert(type, message) {
+    var type = type;
+
+    // Fatal error
+    if (message.substr(7, 15) == "<b>Warning</b>:") {
+        type = "fatal";
+    }
     // Alert container
     var alertCont = document.createElement("div");
     alertCont.className = "container alert";
@@ -28,8 +34,12 @@ function displayAlert(type, message) {
         alertCont.classList.add("display-alert");
         alertCont.classList.add(type);
     }, 100);
-
-    setTimeout(closeAlert, 2000);
+    // Check if the error is fatal
+    if (type != "fatal") {
+        setTimeout(closeAlert, 2000);
+    } else {
+        setTimeout(function() { window.location.href = "index.php"; }, 2000); // Return user to log in page
+    }
 }
 
 /*
@@ -37,9 +47,10 @@ function displayAlert(type, message) {
  */
 function closeAlert() {
     var alertBox = document.getElementsByClassName("alert")[0];
+
     if (alertBox != null && alertBox.classList.contains("success")) { // Alert has not been closed already
         location.reload();
     } else if (alertBox != null && alertBox.classList.contains("error")) {
-        //        document.body.removeChild(document.body.childNodes[0]);
+        document.body.removeChild(document.body.childNodes[0]);
     }
 }

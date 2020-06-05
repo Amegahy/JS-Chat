@@ -19,7 +19,7 @@ $chatId = $_SESSION["chat_id"]; // Chat ID
 $CNSql = "UPDATE chats SET chat_name = '". $nickname ."', nicknamed = '1' WHERE id = '". $chatId ."'"; // Update chat nickname
 
 if ($conn->query($CNSql) === TRUE) {
-    echo "Chat name updated";
+    echo "Chat name updated to " . $nickname;
 } else {
     echo "Error: " . $CNSql . "<br>" . $conn->error;
 }

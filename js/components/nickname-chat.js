@@ -41,8 +41,11 @@ function submitChatName(newChat) {
         return;
     } else {
         $.post("php/nickname-chat.php", { nickname: newChat }).done(function(data) {
-            closePopup();
-            location.reload();
+            if (data.substr(0, 21) == "Chat name updated to ") {
+                displayAlert("success", data);
+            } else {
+                displayAlert("error", data);
+            }
         });
     }
 }

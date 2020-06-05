@@ -47,8 +47,11 @@ function nicknameUser(user, nickname) {
         return;
     } else {
         $.post("php/nickname-user.php", { user: user, nickname: nickname }).done(function(data) {
-            closePopup();
-            location.reload();
+            if (data.includes(" nicknamed ")) {
+                displayAlert("success", data);
+            } else {
+                displayAlert("error", data);
+            }
         });
     }
 }

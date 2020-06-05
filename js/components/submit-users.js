@@ -17,7 +17,11 @@ function submit_users(checkedUsers) {
         checkedUsers.push(username);
         checkedUsers = checkedUsers.sort().join();
         $.post("php/chat-setup.php", { chat_item: checkedUsers }).done(function(data) {
-            window.location.href = "chat.php";
+            if (data != "Chat created successfully" && data.length != 0) { // Valid responses
+                displayAlert("error", data);
+            } else {
+                window.location.href = "chat.php";
+            }
         });
     }
 }

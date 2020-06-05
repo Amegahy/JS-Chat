@@ -15,9 +15,13 @@ function submitMsg(event) {
 
     event.preventDefault();
     $.post("php/chat-put.php", { msg: msg, user: user }).done(function(data) {
-        form.reset();
-        enableSubmit();
-        autoSize();
+        if (data.length != 0) {
+            displayAlert("error", data);
+        } else {
+            form.reset();
+            enableSubmit();
+            autoSize();
+        }
     });
 }
 

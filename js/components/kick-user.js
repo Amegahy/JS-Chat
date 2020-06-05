@@ -33,17 +33,12 @@ function kickUserPopup() {
  */
 function kickUser(user) {
     $.post("php/kick-users.php", { users: user }).done(function(data) {
-        if (data.substr(-6) == "kicked") {
+        if (data.substr(-7) == "kicked.") { // User kicked
             displayAlert("success", data);
+        } else if (data.substr(-14) == "left the chat.") { // User left chat
+            window.location.href = "chat-list.php";
         } else {
             displayAlert("error", data);
         }
-        // if (user == localStorage.getItem("username") && data != "Not enough users") { // If user leaves and there are enough users to leave
-        //     window.location.href = "chat-list.php";
-        // } else if (user != localStorage.getItem("username") && data != "Not enough users") { // Other user has been kicked and there are enough to kick
-        //     location.reload();
-        // } else {
-        //     alert("Not enough users to leave or kick");
-        // }
     });
 }

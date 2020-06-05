@@ -2,7 +2,7 @@
     Author: Alex Megahy
     Description: Load in all users to chat with
     Contents:   - Pull in users         
-                - Display pulled in users in checkboxes     
+                - Display pulled in users   
 ----------------------------------------------------------*/
 
 /*
@@ -10,12 +10,16 @@
  */
 function pull_users(except, style) {
     $.post("php/chat-users.php", { exceptions: except }).done(function(data) {
-        display_users(data, style);
+        if (data.substr(0, 11) != "[{\"users\":[" && data != "No users to display") { // Only show alert with error
+            displayAlert("error", data);
+        } else {
+            display_users(data, style);
+        }
     });
 }
 
 /*
- *   Display pulled in users in checkboxes
+ *   Display pulled in users
  */
 function display_users(data, style) {
     var displayedUsers = ""; // HTML to display

@@ -18,6 +18,10 @@ function select_chat(chat) {
 
     chat_item = chatArray.sort().join();
     $.post("php/chat-setup.php", { chat_item: chat_item }).done(function(data) {
-        window.location.href = "chat.php";
+        if (data != "Chat created successfully" && data.length != 0) { // Valid responses
+            displayAlert("error", data);
+        } else {
+            window.location.href = "chat.php";
+        }
     });
 }

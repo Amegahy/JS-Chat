@@ -10,7 +10,11 @@
  */
 function pull_chat_list() {
     $.post("php/chat-list.php", {}).done(function(data) {
-        display_chats(data);
+        if (data.substr(0, 12) != "[{\"chats\":[\"" && data != "No chats found" && data != "Chat deleted") { // Valid responses
+            displayAlert("error", data);
+        } else {
+            display_chats(data);
+        }
     });
 }
 
@@ -20,7 +24,7 @@ function pull_chat_list() {
 function display_chats(response) {
     var displayed_chats = ""; // Users to be displayed
 
-    if (response.length == 2 || response.includes("Chat deleted")) { // If no users
+    if (response == "No chats found" || response.includes("Chat deleted")) { // If no users
         displayed_chats = "<div class='row'><div class='col-12 p-3'><h3 class='list-item p-3 rounded-lg text-center'>Sorry you have no-one to talk to</h3></div></div>";
     } else {
         var chats = JSON.parse(response);
