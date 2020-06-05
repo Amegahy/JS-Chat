@@ -1,10 +1,13 @@
 <!----------------------------------------------------------
     Author: Alex Megahy
     Description: Main chat page
-    Contents:   - Load more button
-                - Chat panel containing messages
-                - Message submission form
-                - Load more button
+    Contents:   - Full screen pop up
+                - Side menu
+                - Open side menu
+                    - Chat list
+                    - Chat panel
+                        - Chat panel containing messages
+                        - Message submission form
 ----------------------------------------------------------->
 
 <!DOCTYPE html>
@@ -34,6 +37,8 @@
     <script src="js/components/side-menu.js"></script>
     <script src="js/components/icon-colour.js"></script>
     <script src="js/components/alert.js"></script>
+    <script src="js/components/pull-chat-list.js"></script>
+    <script src="js/components/select-chat.js"></script>
     <script src="js/pages/chat.js"></script>
     <title>Practice chat</title>
 </head>
@@ -66,17 +71,24 @@
     </div>
     <!-- Open side menu -->
     <button class="open-menu mr-3 my-2">i</button>
-    <div class="container p-3">
-        <h1 class="chat-title text-center my-3"></h1>
-        <!-- Chat panel containing messages -->
-        <div class="container my-3 p-3 chat-panel">
+    <div class="row">
+        <!-- Chat list -->
+        <div class="chat-list p-4">
+
         </div>
-        <!-- Message submission form -->
-        <div class="container p-3">
-            <form class="msg-form">
-                <textarea name="msg" class="msg-box p-2" rows="1" placeholder="Enter message...."></textarea>
-                <input type="submit" name="SubmitButton" class="msg-submit rounded-0" />
-            </form>
+        <!-- Chat panel -->
+        <div class="chat-cont px-4">
+            <h1 class="chat-title text-center my-3"></h1>
+            <!-- Chat panel containing messages -->
+            <div class="my-3 p-3 chat-panel">
+            </div>
+            <!-- Message submission form -->
+            <div class="msg-cont">
+                <form class="msg-form">
+                    <textarea name="msg" class="msg-box p-2" rows="1" placeholder="Enter message...."></textarea>
+                    <input type="submit" name="SubmitButton" class="msg-submit rounded-0" />
+                </form>
+            </div>
         </div>
     </div>
 </body>

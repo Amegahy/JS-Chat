@@ -308,3 +308,36 @@
   background-color: #a31000;
   color: #fff;
 }
+/*----------------------------------------------------------
+    Author: Alex Megahy
+    Description: Chat container styling
+    Contents:   - Chat container
+-----------------------------------------------------------*/
+/*
+*   Chat container
+*/
+.chat-cont {
+  width: 75%;
+}
+@media only screen and (max-width: 991px) {
+  .chat-cont {
+    width: 100%;
+  }
+}
+/*----------------------------------------------------------
+    Author: Alex Megahy
+    Description: Mini chat list at side of main chat
+    Contents:   - Chat container
+-----------------------------------------------------------*/
+/*
+*   Chat list
+*/
+.chat-list {
+  display: block;
+  width: 25%;
+}
+@media only screen and (max-width: 991px) {
+  .chat-list {
+    display: none;
+  }
+}

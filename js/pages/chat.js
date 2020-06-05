@@ -45,6 +45,8 @@ window.onload = function() {
             submitIconCol(temp, e.target.classList[2]);
         } else if (e.target && e.target.className == 'close-alert') { // Close alert
             closeAlert();
+        } else if (e.target && e.target.className == 'list-item p-3 rounded-lg') { // Select chat
+            select_chat(e.target);
         }
     });
 
@@ -53,6 +55,7 @@ window.onload = function() {
      */
     load_msg(); // Pull messages
     closePopup(); // Default close pop up
+    pull_chat_list(); // Pull chats
     document.getElementsByClassName("msg-submit")[0].disabled = true; // Submit button is default disabled
 
     /*
