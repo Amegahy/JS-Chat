@@ -71,11 +71,9 @@
     </div>
     <!-- Open side menu -->
     <button class="open-menu mr-3 my-2">i</button>
-    <div class="row">
+    <div class="row mx-0">
         <!-- Chat list -->
-        <div class="chat-list p-4">
-
-        </div>
+        <div class="chat-list p-4"></div>
         <!-- Chat panel -->
         <div class="chat-cont px-4">
             <h1 class="chat-title text-center my-3"></h1>

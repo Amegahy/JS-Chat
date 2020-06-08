@@ -1,6 +1,3 @@
 - Log in
-- Error messages, more UF
-- Commenting
-- pull chat to use append child instead of the string innerhtml
 - Checks for all data going in and out of DB to make sure it is correct. Make text safe
 - change classname to contains class list if class is too long
