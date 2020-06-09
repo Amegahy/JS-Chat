@@ -38,6 +38,8 @@ window.onload = function() {
     /*
      *   Event listeners
      */
+    document.getElementsByClassName("open-menu")[0].addEventListener("click", openMenu); // Open side menu
+    document.getElementsByClassName("close-menu")[0].addEventListener("click", closeMenu); // Close side menu
     document.getElementsByClassName("submit-users")[0].addEventListener("click", function() { submit_users(checkedUsers) }); // Submit users to chat
     document.getElementsByClassName("block-users")[0].addEventListener("click", blockUsrPopup); // Pop up to block users
     document.getElementsByClassName("unblock-users")[0].addEventListener("click", unblockUsrPopup); // Pop up to unblock users

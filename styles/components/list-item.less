@@ -17,11 +17,15 @@
     font-size: 1.5rem;
     font-weight: 500;
     line-height: 1.2;
-}
-
-@media only screen and (max-width: @mobileSize){
-    .list-item {
+    
+    @media only screen and (max-width: @mobileSize){
         font-size: 1rem;
+    }
+
+    &:hover {
+        background-color: @list-item-BG-hover;
+        border: @list-item-border-hover;
+        cursor: pointer;
     }
 }
 

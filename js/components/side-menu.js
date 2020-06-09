@@ -9,7 +9,6 @@
  *   Open side menu
  */
 function openMenu() {
-    pullNN(); // Pull in nicknames
     document.getElementsByClassName("side-menu")[0].classList.add("show");
 }
 

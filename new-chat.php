@@ -2,6 +2,8 @@
     Author: Alex Megahy
     Description: Start new chat with user
     Contents:   - Chat panel containing users
+                    - Side menu
+                    - Open side menu
 ----------------------------------------------------------->
 
 <!DOCTYPE html>
@@ -24,6 +26,7 @@
     <script src="js/components/add-users-popup.js"></script>
     <script src="js/components/load-user.js"></script>
     <script src="js/components/alert.js"></script>
+    <script src="js/components/side-menu.js"></script>
     <script src="js/pages/new-chat.js"></script>
     <title>New chat</title>
 </head>
@@ -37,13 +40,19 @@
     </div>
     <!-- Chat panel containing users -->
     <div class="container p-3">
+        <!-- Side menu -->
+        <div class="side-menu cotainer p-3">
+            <button class="close-menu">X</button>
+            <button class="block-users mr-0">Block user</button>
+            <button class="unblock-users mr-0">Unblock user</button>
+        </div>
+        <!-- Open side menu -->
+        <button class="open-menu mr-3 my-2">i</button>
         <h1 class="text-center my-3">Select a user to talk to</h1>
         <div class="container p-3 text-left user-list">
         </div>
         <div class="row mx-0">
-            <button class="submit-users ml-0">Start chat</button>
-            <button class="block-users mr-0">Block user</button>
-            <button class="unblock-users mr-0">Unblock user</button>
+            <button class="submit-users mx-auto">Start chat</button>
         </div>
     </div>
 </body>

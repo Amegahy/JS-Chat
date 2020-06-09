@@ -1,7 +1,7 @@
 /*----------------------------------------------------------
     Author: Alex Megahy
-    Description: Mini chat list at side of main chat
-    Contents:   - Chat container
+    Description: Container for chat list
+    Contents:   - Container
 -----------------------------------------------------------*/
 /*----------------------------------------------------------
     Author: Alex Megahy
@@ -64,14 +64,9 @@
 *   Side menu
 */
 /*
-*   Chat list
+*   Container
 */
 .chat-list {
-  display: block;
-  width: 25%;
-}
-@media only screen and (max-width: 991px) {
-  .chat-list {
-    display: none;
-  }
+  height: 100vh;
+  overflow-y: auto;
 }

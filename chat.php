@@ -73,13 +73,12 @@
     <button class="open-menu mr-3 my-2">i</button>
     <div class="row mx-0">
         <!-- Chat list -->
-        <div class="chat-list p-4"></div>
+        <div class="chat-list side-panel p-4"></div>
         <!-- Chat panel -->
         <div class="chat-cont px-4">
-            <h1 class="chat-title text-center my-3"></h1>
+            <h1 class="chat-title text-center my-3 h-10"></h1>
             <!-- Chat panel containing messages -->
-            <div class="my-3 p-3 chat-panel">
-            </div>
+            <div class="my-3 p-3 chat-panel"></div>
             <!-- Message submission form -->
             <div class="msg-cont">
                 <form class="msg-form">

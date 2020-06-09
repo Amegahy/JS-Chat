@@ -12,5 +12,6 @@ function checkScroll() {
 
     if (chatPanel.scrollTop == 0) {
         rows += 5; // Increment the number of rows by 5
+        loadMsg("load");
     }
 }

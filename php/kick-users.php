@@ -27,7 +27,7 @@ if (!$conn -> query($kickSearchSql)) { // Test for errors
 } else if (count($_SESSION["chat_users"]) == 2){ // Not enough users to kick
     echo "Not enough users";
     return;
-}else if ($kickSearchResult->num_rows > 0) { // Chat found
+} else if ($kickSearchResult->num_rows > 0) { // Chat found
     while($row = $kickSearchResult->fetch_assoc()) { 
         $newUsers = removeUser($row['users'], $kickUsers); // Users with kicked user removed
         $kickUserSql = "";

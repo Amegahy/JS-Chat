@@ -53,7 +53,7 @@ window.onload = function() {
     /*
      *   On load functions
      */
-    load_msg(); // Pull messages
+    setInterval(loadMsg, 500); // Pull messages
     closePopup(); // Default close pop up
     pull_chat_list(); // Pull chats
     document.getElementsByClassName("msg-submit")[0].disabled = true; // Submit button is default disabled
@@ -62,6 +62,7 @@ window.onload = function() {
      *   Event listeners
      */
     document.getElementsByClassName("open-menu")[0].addEventListener("click", openMenu); // Open side menu
+    document.getElementsByClassName("open-menu")[0].addEventListener("click", pullNN); // Pull in nicknames for side menu
     document.getElementsByClassName("close-menu")[0].addEventListener("click", closeMenu); // Close side menu
     document.getElementsByClassName("user-colour")[0].addEventListener("click", iconColPopup); // Choose user icon colour
     document.getElementsByClassName("leave-chat")[0].addEventListener("click", function() { kickUser(user) }); // Leave chat

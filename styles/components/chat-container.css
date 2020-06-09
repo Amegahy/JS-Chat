@@ -67,6 +67,7 @@
 *   Chat container
 */
 .chat-cont {
+  height: 100vh;
   width: 75%;
 }
 @media only screen and (max-width: 991px) {

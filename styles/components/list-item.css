@@ -15,6 +15,7 @@
                 - Log in
                 - Chat
                 - List item
+                - Side menu
 -----------------------------------------------------------*/
 @font-face {
   font-family: 'Poppins';
@@ -59,6 +60,12 @@
 *   List item
 */
 /*
+*   Full screen 
+*/
+/*
+*   Side menu
+*/
+/*
 *   Item block
 */
 .list-item {
@@ -72,6 +79,11 @@
   .list-item {
     font-size: 1rem;
   }
+}
+.list-item:hover {
+  background-color: #f5f5f5;
+  border: 1px solid #c1bbbb;
+  cursor: pointer;
 }
 /*
 *   Item container
