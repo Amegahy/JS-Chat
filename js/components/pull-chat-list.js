@@ -10,7 +10,7 @@
  */
 function pullChatList() {
     $.post("php/chat-list.php", {}).done(function(data) {
-        if (data.substr(0, 11) != "[{\"chats\":\"" && !data.includes("No chats found") && !data.includes("Chat deleted")) { // Valid responses
+        if (data.substr(0, 10) != "[{\"chats\":" && !data.includes("No chats found") && !data.includes("Chat deleted")) { // Valid responses
             displayAlert("error", data);
         } else {
             display_chats(data);

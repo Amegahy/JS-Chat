@@ -52,7 +52,7 @@ if ($chatUsersResult->num_rows > 0) { // If there are more rows
             array_push($users, $user);
         }elseif ($exceptions == "notChat-unblocked" && in_array($user, $_SESSION["chat_users"], TRUE) && !in_array($user, $blocked)){ // Include all unblocked chat users and the user
             array_push($users, $user);
-        }elseif ($exceptions == "notChat-U" && in_array($user, $_SESSION["chat_users"], TRUE) && $user != $username){ // Include all current chat users and not the current user
+        }elseif ($exceptions == "notChat-U" && in_array($user, $_SESSION["chat_users"], TRUE) && $user != $username && !in_array($user, $blocked)){ // Include all current chat users and not the current user
             array_push($users, $user);
         }elseif ($exceptions == "blocked" && in_array($user, $blocked) && $user != $username){ // Include all blocked users
             array_push($users, $user);
