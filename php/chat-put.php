@@ -17,9 +17,9 @@ include 'db-con.php';
 *   Form values
 */
 date_default_timezone_set('Europe/London');
-$name = $_POST["user"];
+$name = $conn->real_escape_string($_POST["user"]);
 $time = date("H:i:s"); 
-$msg = $_POST['msg'];
+$msg = $conn->real_escape_string($_POST['msg']);
 
 /*
 *   Insert message into DB

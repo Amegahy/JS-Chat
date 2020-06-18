@@ -28,7 +28,6 @@
     <script src="js/components/submit-msg.js"></script>
     <script src="js/components/chat-box.js"></script>
     <script src="js/components/add-user.js"></script>
-    <script src="js/components/add-users-popup.js"></script>
     <script src="js/components/nickname-user.js"></script>
     <script src="js/components/nickname-chat.js"></script>
     <script src="js/components/popup.js"></script>
@@ -54,19 +53,18 @@
     <div class="side-menu cotainer p-3">
         <button class="close-menu">X</button>
         <!-- Colour select -->
-        <button class="user-colour mr-0">User icon colour</button>
+        <button class="cta user-colour">User icon colour</button>
         <!-- Nickname the users -->
-        <button class="user-nickname-btn mr-0">Nickname users</button>
+        <button class="cta user-nickname-btn">Nickname users</button>
         <!-- Nickname the chat -->
-        <button class="chat-nickname-btn mr-0">Nickname chat</button>
+        <button class="cta chat-nickname-btn">Nickname chat</button>
         <!-- Add users button -->
-        <button class="add-user mr-0">Add user</button>
+        <button class="cta add-user">Add user</button>
         <!-- Kick users button -->
-        <button class="kick-user mr-0">Kick user</button>
+        <button class="cta kick-user">Kick user</button>
         <!-- Leave chat button -->
-        <button class="leave-chat mr-0">Leave chat</button>
+        <button class="cta leave-chat">Leave chat</button>
         <!-- List of users and their nicknames-->
-        <h3 class="mt-5"><u>User nicknames</u></h3>
         <div class="container user-NN-list"></div>
     </div>
     <!-- Open side menu -->

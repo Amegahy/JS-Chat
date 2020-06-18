@@ -7,7 +7,7 @@
 /*
  *   Set username
  */
-function set_usr(event) {
+function setUsr(event) {
     var user = document.getElementsByClassName("usr")[0].value;
 
     event.preventDefault();

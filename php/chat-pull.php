@@ -17,35 +17,14 @@ include 'db-con.php';
 include 'drop-blocked-chats.php';
 
 /*
-*   Search for blocked users 
-*/
-$username = $_SESSION['user_name'];
-$blocked = array(); // Array of blocked users
-$searchBlockedSql = "SELECT * FROM blocked WHERE blocker = '". $username ."' OR blocked = '". $username ."'";
-$searchBlockedResult = $conn->query($searchBlockedSql);
-
-if (!$conn -> query($searchBlockedSql)) { // Test for errors
-    echo("Error: " . $conn -> error);
-    exit;
-} else {
-    if ($searchBlockedResult->num_rows > 0) { // If there are blocked users
-        while($row = $searchBlockedResult->fetch_assoc()) { 
-            if($row['blocker'] == $username){ // If user blocked another
-                array_push($blocked, $row['blocked']);
-            } else if ($row['blocked'] == $username){ // If user has been blocked, don't show blocker
-                array_push($blocked, $row['blocker']);
-            }
-        }
-    }
-}
-
-/*
 *   Chat title 
 */
+$blocked = blockedSearch($conn);
 $chatID = "";
 $chatIdSql = "SELECT * FROM chats WHERE id ='". $_SESSION['chat_id'] ."'";
 $chatIdResult = $conn->query($chatIdSql);
 $response = [];
+$user = $_SESSION['user_name'];
 
 if (!$conn -> query($chatIdSql)) { // Test for errors
     echo("Error: " . $conn -> error);
@@ -56,6 +35,20 @@ if (!$conn -> query($chatIdSql)) { // Test for errors
             $users = explode(",",$row['users']);
             $_SESSION["chat_users"] = $users; // Set users
             $_SESSION["chat_name"] = $row['chat_name']; // Set chat name
+            $chatName = $_SESSION["chat_name"];
+            
+            if ($row['nicknamed'] == 0) { // If chat is not nicknamed
+                $chatName = explode(",",$chatName);
+
+                for ($x = 0; $x < count($chatName); $x++) {
+                    if (in_array($chatName[$x], $blocked)){
+                        $chatName[$x] = "Unidentified user";
+                    } else if ($chatName[$x] == $user) {
+                        unset($chatName[$x]);
+                    }
+                }
+                $chatName = implode(", " , $chatName);
+            }
             $chatID = $row['id'];
 
             dropBlockedChat($conn, $users, $chatID); // Remove any chats with just blocked users
@@ -66,7 +59,7 @@ if (!$conn -> query($chatIdSql)) { // Test for errors
     }
 }
 
-$response[] = array('chat_title'=> $_SESSION["chat_name"]); // Add chat title to response array
+$response[] = array('chat_title'=> $chatName); // Add chat title to response array
 
 /*
 *   Messages 
@@ -78,8 +71,6 @@ $msgResult = $conn->query($msgSql);
 /*
 *   Responds with rows
 */
-$user = $_SESSION["user_name"]; // Current user
-
 if (!$conn -> query($msgSql)) { // Test for errors
     echo("Error: " . $conn -> error);
     exit;

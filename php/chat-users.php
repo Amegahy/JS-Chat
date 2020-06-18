@@ -15,8 +15,8 @@ include 'db-con.php';
 /*
 *   Select all first and last names from DB
 */
-$username = $_SESSION['user_name'];
-$exceptions = $_POST['exceptions']; // Which users to exclude
+$username = $conn->real_escape_string($_SESSION['user_name']);
+$exceptions = $conn->real_escape_string($_POST['exceptions']); // Which users to exclude
 $chatUsersSql = "SELECT firstName,lastName FROM `users`";
 $chatUsersResult = $conn->query($chatUsersSql);
 $respone = [];

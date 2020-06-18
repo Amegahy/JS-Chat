@@ -24,16 +24,16 @@ window.onload = function() {
         var fs = document.getElementsByClassName("full-screen")[0]; // Full screen popup
 
         if (e.target && e.target.className == 'user-list-item') { // A user has been selected
-            checkedUsers = user_checkbox(e.target, checkedUsers); // Pass the selected user on to be checked
+            checkedUsers = userCheckbox(e.target, checkedUsers); // Pass the selected user on to be checked
         } else if (e.target && e.target.className == 'submit-add-user') {
             add_user(checkedUsers);
         } else if (e.target && e.target.className == 'list-item rounded-lg p-3' && fs.classList.contains("nickname-u")) { // Nickname user
             nnUser = e.target.innerHTML;
             setUpNickname(e.target.innerHTML);
-        } else if (e.target && e.target.className == 'submit-nn' && fs.classList.contains("nickname-u")) { // Submit user nickname
+        } else if (e.target && e.target.classList.contains("submit-nn") && fs.classList.contains("nickname-u")) { // Submit user nickname
             var nn = document.getElementsByClassName("nn-input")[0].value; // Nickname
             nicknameUser(nnUser, nn);
-        } else if (e.target && e.target.className == 'submit-cn' && fs.classList.contains("nickname-c")) { // Submit chat nickname
+        } else if (e.target && e.target.classList.contains("submit-cn") && fs.classList.contains("nickname-c")) { // Submit chat nickname
             var cn = document.getElementsByClassName("cn-input")[0].value; // Chat nickname
             submitChatName(cn);
         } else if (e.target && e.target.classList.contains("list-item") && fs.classList.contains("kick")) { // Kick selected users
@@ -45,7 +45,7 @@ window.onload = function() {
             submitIconCol(temp, e.target.classList[2]);
         } else if (e.target && e.target.className == 'close-alert') { // Close alert
             closeAlert();
-        } else if (e.target && e.target.className == 'list-item p-3 rounded-lg') { // Select chat
+        } else if (e.target && e.target.classList.contains("list-item")) { // Select chat
             select_chat(e.target);
         }
     });
@@ -55,7 +55,7 @@ window.onload = function() {
      */
     setInterval(loadMsg, 500); // Pull messages
     closePopup(); // Default close pop up
-    pull_chat_list(); // Pull chats
+    pullChatList(); // Pull chats
     document.getElementsByClassName("msg-submit")[0].disabled = true; // Submit button is default disabled
 
     /*

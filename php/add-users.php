@@ -15,32 +15,37 @@ include 'db-con.php';
 /*
 *   Create new list of users
 */
-$newUsers = $_POST['users']; // New users to be added to chat
+$newUsers = $conn->real_escape_string($_POST['users']); // New users to be added to chat
 $chat_users =  implode(",",$_SESSION["chat_users"]);
 $users = $newUsers . "," . $chat_users;
 
 // Sort string
 $users = explode(',', $users);
-sort($users);
-$users = implode(",",$users);
 
-/*
-*   Insert new users into 'users' and 'chat_name'
-*/
-$newUsersSql = "SELECT * FROM `chats` WHERE id = '". $_SESSION["chat_id"] ."'";
-$newUsersResult = $conn->query($newUsersSql);
+if (count($users) > 50){ // 50 user limit
+    echo "50 user limit reached";
+} else {
+    sort($users);
+    $users = implode(",",$users);
 
-if ($newUsersResult->num_rows > 0) { // If there are more rows
-    while($row = $newUsersResult->fetch_assoc()) {
-        if ($row['nicknamed'] == 0) { // If chat is not nicknamed
-            $updateChatSql = "UPDATE chats SET chat_name = '". $users ."', users= '". $users ."' WHERE id = '". $_SESSION["chat_id"] ."'";
-        }else {
-            $updateChatSql = "UPDATE chats SET users= '". $users ."' WHERE id = '". $_SESSION["chat_id"] ."'";
-        }
-        if ($conn->query($updateChatSql) === TRUE) {
-            echo $newUsers . " added to the chat";
-        } else {
-            echo "Error: " . $updateChatSql . "<br>" . $conn->error;
+    /*
+    *   Insert new users into 'users' and 'chat_name'
+    */
+    $newUsersSql = "SELECT * FROM `chats` WHERE id = '". $_SESSION["chat_id"] ."'";
+    $newUsersResult = $conn->query($newUsersSql);
+
+    if ($newUsersResult->num_rows > 0) { // If there are more rows
+        while($row = $newUsersResult->fetch_assoc()) {
+            if ($row['nicknamed'] == 0) { // If chat is not nicknamed
+                $updateChatSql = "UPDATE chats SET chat_name = '". $users ."', users= '". $users ."' WHERE id = '". $_SESSION["chat_id"] ."'";
+            }else {
+                $updateChatSql = "UPDATE chats SET users= '". $users ."' WHERE id = '". $_SESSION["chat_id"] ."'";
+            }
+            if ($conn->query($updateChatSql) === TRUE) {
+                echo $newUsers . " added to the chat";
+            } else {
+                echo "Error: " . $updateChatSql . "<br>" . $conn->error;
+            }
         }
     }
 }

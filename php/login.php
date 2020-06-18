@@ -14,7 +14,8 @@ include 'db-con.php';
 /*
 *   Retrieve user ID
 */
-$usrIdSql = "SELECT firstName, lastName FROM `users` WHERE email = '" . $_POST['usr'] . "'";
+$user = $conn->real_escape_string($_POST['usr']);
+$usrIdSql = "SELECT firstName, lastName FROM `users` WHERE email = '" . $user . "'";
 $usrIdResult = $conn->query($usrIdSql);
 
 if ($usrIdResult->num_rows > 0) { // If there are more rows

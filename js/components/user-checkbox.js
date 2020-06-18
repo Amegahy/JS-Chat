@@ -7,7 +7,7 @@
 /*
  *   Check if users is checked or not
  */
-function user_checkbox(user, arr) {
+function userCheckbox(user, arr) {
     var container = user.parentElement.parentElement.classList;
 
     if (user.checked == true) { // If checked then add to array

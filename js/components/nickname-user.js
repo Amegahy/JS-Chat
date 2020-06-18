@@ -12,8 +12,14 @@
 function nicknameUserList() {
     clearPopup();
     buildUserList(); // Build the space for the user list
-    pull_users("notChat-unblocked", "default"); // Display all users bar those not in the chat
+    pullUsers("notChat-unblocked", "default"); // Display all users bar those not in the chat
     togglePopup("nickname-u");
+
+    // Heading
+    var h = document.createElement("h3"); // Heading 
+    h.innerHTML = "Please select a user";
+    h.className = "text-center my-3";
+    document.getElementsByClassName("fs container m-auto")[0].prepend(h);
 }
 
 /*
@@ -23,18 +29,19 @@ function setUpNickname(user) {
     clearPopup();
     // Heading
     var e = document.createElement("h3");
-    e.innerHTML = "Set a new nickname for " + user;
-    e.className = "text-center";
+    var headingText = document.createTextNode("Set a new nickname for " + user);
+    e.appendChild(headingText);
+    e.className = "text-center my-3";
     document.getElementsByClassName("fs container m-auto")[0].appendChild(e);
     // Input for nickname
     var e = document.createElement("input");
-    e.className = "nn-input mx-auto d-block my-3 col-12 col-sm-8 col-md-6";
+    e.className = "nn-input mx-auto d-block my-4 col-12 col-sm-8 col-md-6";
     e.placeholder = "Please enter new nickname here...";
     document.getElementsByClassName("fs container m-auto")[0].appendChild(e);
     // Submit nickname 
     var e = document.createElement("button");
-    e.className = "submit-nn";
-    e.innerHTML = "Submit nickname";
+    e.className = "submit-nn my-3";
+    e.innerHTML = "Set nickname";
     document.getElementsByClassName("fs container m-auto")[0].appendChild(e);
 }
 

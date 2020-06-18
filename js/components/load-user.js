@@ -9,7 +9,7 @@
 /*
  *   Pull in users
  */
-function pull_users(except, style) {
+function pullUsers(except, style) {
     $.post("php/chat-users.php", { exceptions: except }).done(function(data) {
         if (data.substr(0, 11) != "[{\"users\":[" && data != "No users to display") { // Only show alert with error
             displayAlert("error", data);
@@ -26,7 +26,7 @@ function display_users(data, style) {
     if (data == "No users to display") {
         // Append title
         var title = document.createElement("h3");
-        title.innerHTML = ("No users to display");
+        title.innerHTML = "No users to display";
         title.className = "text-center";
         document.getElementsByClassName("user-list")[0].appendChild(title);
     } else {
@@ -51,14 +51,16 @@ function display_users(data, style) {
                  *  Different types of display 
                  */
                 if (style == "default") { // Users appear in divs
+                    var itemText = document.createTextNode(item);
                     itemCont.className += " p-3";
-                    itemCont.innerHTML = item;
+                    itemCont.appendChild(itemText);
                 } else if (style == "checkbox") { // Users appear in checkboxes
                     itemCont.className += " checkbox";
                     // User list item label
                     var label = document.createElement("label");
+                    var labelText = document.createTextNode(item);
+                    label.appendChild(labelText);
                     label.className = "list-item-container p-3";
-                    label.innerHTML = item;
                     itemCont.appendChild(label);
                     // User list item checkbox
                     var input = document.createElement("input");

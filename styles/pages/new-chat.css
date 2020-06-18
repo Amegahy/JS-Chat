@@ -84,6 +84,9 @@
   font-size: 1.5rem;
   font-weight: 500;
   line-height: 1.2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 @media only screen and (max-width: 567px) {
   .list-item {
@@ -93,7 +96,6 @@
 .list-item:hover {
   background-color: #f5f5f5;
   border: 1px solid #c1bbbb;
-  cursor: pointer;
 }
 /*
 *   Item container
@@ -101,6 +103,9 @@
 .list-item-container {
   height: 100%;
   width: 100%;
+}
+.list-item-container:hover {
+  cursor: pointer;
 }
 /*
 *   User list item
@@ -216,6 +221,16 @@
   margin: 0;
   width: 2.3rem;
 }
+.side-menu .cta {
+  display: block;
+  width: 100%;
+}
+@media only screen and (max-width: 991px) {
+  .side-menu .cta {
+    margin: 1rem auto;
+    width: 50%;
+  }
+}
 .side-menu h3 {
   font-size: 1.5rem;
   font-weight: 400;
@@ -240,10 +255,10 @@
 .show {
   opacity: 1;
   visibility: visible;
-  width: 50%;
+  width: 25%;
   z-index: 1;
 }
-@media only screen and (max-width: 567px) {
+@media only screen and (max-width: 991px) {
   .show {
     width: 100%;
   }

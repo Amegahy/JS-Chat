@@ -12,18 +12,24 @@
 function kickUserPopup() {
     clearPopup();
     buildUserList(); // Build the space for the user list
-    pull_users("notChat-U", "default"); // Display all users bar those not in the chat and the current user
+    pullUsers("notChat-U", "default"); // Display all users bar those not in the chat and the current user
 
     /*
      *   Timeout to read for users (Callback)
      */
     setTimeout(function() {
         var user = localStorage.getItem("username");
+        var fs = document.getElementsByClassName("p-3 text-left user-list")[0]; // Full screen popup
 
-        if (document.getElementsByClassName("list-item").length <= 1) { // Only the user is in the chat
+        if (fs.childElementCount <= 1) { // Only 2 users are in the chat
             displayAlert("error", "No users to kick");
         } else {
             togglePopup("kick");
+            // Heading
+            var h = document.createElement("h3"); // Heading 
+            h.innerHTML = "Please select a user to kick";
+            h.className = "text-center my-3";
+            document.getElementsByClassName("fs container m-auto")[0].prepend(h);
         }
     }, 100);
 }

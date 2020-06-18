@@ -87,6 +87,9 @@
   font-size: 1.5rem;
   font-weight: 500;
   line-height: 1.2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 @media only screen and (max-width: 567px) {
   .list-item {
@@ -150,6 +153,16 @@
   margin: 0;
   width: 2.3rem;
 }
+.side-menu .cta {
+  display: block;
+  width: 100%;
+}
+@media only screen and (max-width: 991px) {
+  .side-menu .cta {
+    margin: 1rem auto;
+    width: 50%;
+  }
+}
 .side-menu h3 {
   font-size: 1.5rem;
   font-weight: 400;
@@ -174,10 +187,10 @@
 .show {
   opacity: 1;
   visibility: visible;
-  width: 50%;
+  width: 25%;
   z-index: 1;
 }
-@media only screen and (max-width: 567px) {
+@media only screen and (max-width: 991px) {
   .show {
     width: 100%;
   }
@@ -317,6 +330,7 @@
     Author: Alex Megahy
     Description: Chat container styling
     Contents:   - Chat container
+                - Chat title
 -----------------------------------------------------------*/
 /*
 *   Chat container
@@ -324,11 +338,19 @@
 .chat-cont {
   height: 100vh;
   width: 75%;
+  /*
+    *   Chat title
+    */
 }
 @media only screen and (max-width: 991px) {
   .chat-cont {
     width: 100%;
   }
+}
+.chat-cont .chat-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 /*----------------------------------------------------------
     Author: Alex Megahy

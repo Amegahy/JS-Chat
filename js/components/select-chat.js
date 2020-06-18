@@ -12,8 +12,10 @@ function select_chat(chat) {
     var username = localStorage.getItem("username"); // Username
     var chatArray = chat_item.split(",");
 
-    chatArray.push(username); // Add user back into chat 
-    chat_item = chatArray.sort().join();
+    if (chat.classList.contains("nn-0")) { // If not nicknamed, add username to title to search
+        chatArray.push(username); // Add user back into chat 
+        chat_item = chatArray.sort().join();
+    }
     $.post("php/chat-setup.php", { chat_item: chat_item }).done(function(data) {
         if (data != "Chat created successfully" && data.length != 0) { // Valid responses
             displayAlert("error", data);

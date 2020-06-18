@@ -2,6 +2,7 @@
     Author: Alex Megahy
     Description: Chat container styling
     Contents:   - Chat container
+                - Chat title
 -----------------------------------------------------------*/
 
 @import "../site.less";
@@ -15,5 +16,14 @@
 
     @media only screen and (max-width: @tabletSize) {
         width: 100%;
+    }
+
+    /*
+    *   Chat title
+    */
+    .chat-title {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
     }
 }

@@ -32,12 +32,14 @@ function displayNN(data) {
         document.getElementsByClassName("container user-NN-list")[0].appendChild(row);
         // Create username
         var user = document.createElement("h3");
-        user.innerHTML = item.name;
+        var userText = document.createTextNode(item.name);
+        user.appendChild(userText);
         document.getElementsByClassName("row d-block")[index].appendChild(user);
         // Create nickname
         if (item.nn != "") { // If there is a nickname
             var nn = document.createElement("h4");
-            nn.innerHTML = item.nn;
+            var nnText = document.createTextNode(item.nn);
+            nn.appendChild(nnText);
             document.getElementsByClassName("row d-block")[index].appendChild(nn);
         }
     });

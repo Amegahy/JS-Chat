@@ -8,9 +8,9 @@
 /*
  *   Pull in chat list
  */
-function pull_chat_list() {
+function pullChatList() {
     $.post("php/chat-list.php", {}).done(function(data) {
-        if (data.substr(0, 12) != "[{\"chats\":[\"" && !data.includes("No chats found") && !data.includes("Chat deleted")) { // Valid responses
+        if (data.substr(0, 11) != "[{\"chats\":\"" && !data.includes("No chats found") && !data.includes("Chat deleted")) { // Valid responses
             displayAlert("error", data);
         } else {
             display_chats(data);
@@ -39,12 +39,7 @@ function display_chats(response) {
     } else {
         var chats = JSON.parse(response);
         var username = localStorage.getItem("username");
-
-        chats[0].chats.forEach(function(item, index) {
-            if (item.includes(username)) { // Remove user's name from list item title
-                item = item.replace(username + ",", "");
-                item = item.replace("," + username, "");
-            }
+        chats.forEach(function(item, index) {
             // List item row
             var row = document.createElement("div");
             row.className = "row";
@@ -54,8 +49,9 @@ function display_chats(response) {
             row.appendChild(cont);
             // List item
             var itemCont = document.createElement("h3");
-            itemCont.className = "list-item p-3 rounded-lg";
-            itemCont.innerHTML = item;
+            var itemText = document.createTextNode(item.chats);
+            itemCont.appendChild(itemText);
+            itemCont.className = "list-item p-3 rounded-lg nn-" + item.nickname;
             cont.appendChild(itemCont);
             document.getElementsByClassName("chat-list")[0].appendChild(row);
         })

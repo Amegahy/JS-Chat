@@ -59,23 +59,31 @@ input[type=submit] {
         background: @close-btn-BG;
         border-radius: 20px;
         color: @close-btn-colour;
-        font-size: .7rem;
+        display: block;
         margin: 1rem;
-        padding: .5rem;
-        position: absolute;
+        outline: none !important;
         right: 0;
+        padding: 12px;
+        position: absolute;
+        width: 2.1rem;
 
         &:hover {
             cursor: pointer;
         }
     }
+    
+    .fs {
+        background: @full-screen-container-BG;
+        border-radius: 20px;
+        padding: 1rem;
+        width: 50%;
+
+        @media only screen and (max-width: @tabletSize){
+            width: 100%;
+        }
+    }
 }
 
-.fs {
-    background: @full-screen-container-BG;
-    border-radius: 20px;
-    padding: 1rem;
-}
 
 /*
 *   Selected element

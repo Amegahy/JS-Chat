@@ -11,13 +11,13 @@ window.onload = function() {
     /*
      *   On load functions
      */
-    pull_chat_list(); // Pull chats
+    pullChatList(); // Pull chats
 
     /*
      *   Dynamic event listeners
      */
     document.addEventListener('click', function(e) {
-        if (e.target && e.target.className == 'list-item p-3 rounded-lg') {
+        if (e.target && e.target.classList.contains("list-item")) {
             select_chat(e.target);
         } else if (e.target && e.target.className == 'close-alert') { // Close alert
             closeAlert();

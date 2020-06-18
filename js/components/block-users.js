@@ -12,7 +12,7 @@
 function blockUsrPopup() {
     clearPopup();
     buildUserList(); // Build the space for the user list
-    pull_users("NA", "default"); // Display all users except the users which are blocked
+    pullUsers("NA", "default"); // Display all users except the users which are blocked
     togglePopup("block");
 }
 
@@ -22,7 +22,7 @@ function blockUsrPopup() {
 function unblockUsrPopup() {
     clearPopup();
     buildUserList(); // Build the space for the user list
-    pull_users("blocked", "default"); // Display all users except the users which are blocked
+    pullUsers("blocked", "default"); // Display all users except the users which are blocked
     togglePopup("unblock");
 }
 

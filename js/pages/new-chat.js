@@ -17,7 +17,7 @@ window.onload = function() {
     /*
      *   On load functions
      */
-    pull_users("NA", "checkbox"); // Display all users to chat to
+    pullUsers("NA", "checkbox"); // Display all users to chat to
     closePopup(); // Default close pop up
 
     /*
@@ -27,7 +27,7 @@ window.onload = function() {
         var fs = document.getElementsByClassName("full-screen")[0]; // Full screen popup
 
         if (e.target && e.target.className == 'user-list-item') { // If user item is selected
-            checkedUsers = user_checkbox(e.target, checkedUsers); // Pass the selected user on to be checked
+            checkedUsers = userCheckbox(e.target, checkedUsers); // Pass the selected user on to be checked
         } else if (e.target && e.target.classList.contains("list-item") && (fs.classList.contains("block") || fs.classList.contains("unblock"))) { // If user item is selected to block
             toggleBlockUser(e.target.innerHTML); // Pass the selected user on to be blocked
         } else if (e.target && e.target.className == 'close-alert') { // Close alert

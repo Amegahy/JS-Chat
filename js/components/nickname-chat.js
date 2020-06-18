@@ -10,22 +10,21 @@
  */
 
 function nicknameChat() {
-    var chatTitle = document.getElementsByClassName("chat-title")[0].innerHTML;
     clearPopup();
     // Heading
     var e = document.createElement("h3");
-    e.innerHTML = "Set a new nickname for " + chatTitle;
-    e.className = "text-center";
+    e.innerHTML = "Set a new nickname for chat";
+    e.className = "text-center my-3";
     document.getElementsByClassName("fs container m-auto")[0].appendChild(e);
     // Input for nickname
     var e = document.createElement("input");
-    e.className = "cn-input mx-auto d-block my-3 col-12 col-sm-8 col-md-6";
+    e.className = "cn-input mx-auto my-4 d-block my-3 col-12 col-sm-8 col-md-6";
     e.placeholder = "Please enter new chat name here...";
     document.getElementsByClassName("fs container m-auto")[0].appendChild(e);
     // Submit nickname 
     var e = document.createElement("button");
-    e.className = "submit-cn";
-    e.innerHTML = "Submit chat name";
+    e.className = "submit-cn my-3";
+    e.innerHTML = "Set chat name";
     document.getElementsByClassName("fs container m-auto")[0].appendChild(e);
     togglePopup("nickname-c");
 }

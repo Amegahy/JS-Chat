@@ -16,11 +16,10 @@ include 'db-con.php';
 /*
 *   Locate user in chats table
 */
-$kickUsers = $_POST['users']; // Users to be kicked from chat
-$chatID = $_SESSION["chat_id"];
+$kickUsers = $conn->real_escape_string($_POST['users']); // Users to be kicked from chat
+$chatID = $conn->real_escape_string($_SESSION["chat_id"]);
 $kickSearchSql = "SELECT * FROM chats WHERE id = '". $chatID ."'";
 $kickSearchResult = $conn->query($kickSearchSql);
-
 if (!$conn -> query($kickSearchSql)) { // Test for errors
     echo("Error: " . $conn -> error);
     exit;

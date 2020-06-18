@@ -20,10 +20,10 @@
     <script src="js/components/submit-users.js"></script>
     <script src="js/components/load-user.js"></script>
     <script src="js/components/user-checkbox.js"></script>
+    <script src="js/components/add-user.js"></script>
     <script src="js/components/select-chat.js"></script>
     <script src="js/components/block-users.js"></script>
     <script src="js/components/popup.js"></script>
-    <script src="js/components/add-users-popup.js"></script>
     <script src="js/components/load-user.js"></script>
     <script src="js/components/alert.js"></script>
     <script src="js/components/side-menu.js"></script>

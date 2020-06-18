@@ -2,33 +2,22 @@
 /*----------------------------------------------------------
     Author: Alex Megahy
     Description: Remove chtas with only blocked users
-    Contents:   - Delete chat with only blocked users 
+    Contents:   - Includes
+                - Delete chat with only blocked users 
                     - Search for blocked users 
                     - Count users and drop
 -----------------------------------------------------------*/
 
 /*
+*   Includes
+*/
+include 'blocked-users.php';
+
+/*
 *   Delete chat with only blocked users 
 */
 function dropBlockedChat($conn, $users, $id){
-
-    /*
-    *   Search for blocked users 
-    */
-    $username = $_SESSION['user_name'];
-    $blocked = array(); // Array of blocked users
-    $searchBlockedSql = "SELECT * FROM blocked WHERE blocker = '". $username ."' OR blocked = '". $username ."'";
-    $searchBlockedResult = $conn->query($searchBlockedSql);
-
-    if ($searchBlockedResult->num_rows > 0) { // If there are blocked users
-        while($row = $searchBlockedResult->fetch_assoc()) { 
-            if($row['blocker'] == $username){ // If user blocked another
-                array_push($blocked, $row['blocked']);
-            } else if ($row['blocked'] == $username){ // If user has been blocked, don't show blocker
-                array_push($blocked, $row['blocker']);
-            }
-        }
-    }
+    $blocked = blockedSearch($conn);
 
     /*
     *   Count users and drop 

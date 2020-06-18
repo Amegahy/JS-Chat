@@ -14,9 +14,9 @@ include 'db-con.php';
 /*
 *   Find user in chat_users
 */
-$user = $_POST['user']; // User for colour change
-$colour = $_POST['colour']; // Colour change
-$chatId = $_SESSION["chat_id"];
+$user = $conn->real_escape_string($_POST['user']); // User for colour change
+$colour = $conn->real_escape_string($_POST['colour']); // Colour change
+$chatId = $conn->real_escape_string($_SESSION["chat_id"]);
 $checkColSql = "SELECT * from chat_users WHERE chat_name ='". $chatId ."' AND user ='". $user ."'"; // Check if user exists in table already
 $checkColResult = $conn->query($checkColSql);
 $ColSql = ""; // Set/Update icon colour SQL 

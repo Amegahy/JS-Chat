@@ -1,13 +1,21 @@
 /*----------------------------------------------------------
     Author: Alex Megahy
     Description: On load function listeners for index.php
-    Contents:   - Event listeners                
+    Contents:   - Global variables
+                - Event listeners                
 ----------------------------------------------------------*/
 
 window.onload = function() {
 
     /*
+     *   Global variables
+     */
+    var form = document.getElementsByClassName("login-form")[0]; // Login form
+
+    /*
      *   Event listeners
      */
-    document.getElementsByClassName("login-form")[0].addEventListener("submit", set_usr); // Increase rows on click of btn-load
+    form.reset(); // Reset form on page load
+    form.addEventListener("submit", setUsr); // Set user
+
 }

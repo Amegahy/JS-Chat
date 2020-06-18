@@ -15,8 +15,8 @@ include 'db-con.php';
 /*
 *   Add users
 */
-$user = $_POST['user'];
-$blocked = $_POST['blocked'];
+$user = $conn->real_escape_string($_POST['user']);
+$blocked = $conn->real_escape_string($_POST['blocked']);
 
 /*
 *   Search for block

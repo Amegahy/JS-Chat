@@ -12,8 +12,14 @@
 function iconColPopup() {
     clearPopup();
     buildUserList(); // Build the space for the user list
-    pull_users("notChat-unblocked", "default"); // Display all users bar those not in the chat
+    pullUsers("notChat-unblocked", "default"); // Display all users bar those not in the chat
     togglePopup("colour");
+
+    // Heading
+    var h = document.createElement("h3"); // Heading 
+    h.innerHTML = "Please select a user";
+    h.className = "text-center my-3";
+    document.getElementsByClassName("fs container m-auto")[0].prepend(h);
 }
 
 /*
@@ -26,11 +32,12 @@ function iconColour(user) {
 
     clearPopup();
     // Heading
-    h.innerHTML = "Set a icon colour for " + user;
-    h.className = "text-center";
+    var headingText = document.createTextNode("Set a icon colour for " + user);
+    h.appendChild(headingText);
+    h.className = "text-center my-3";
     document.getElementsByClassName("fs container m-auto")[0].appendChild(h);
     // Colour blocks row
-    row.className = "row my-2 mx-0";
+    row.className = "row my-3 mx-0";
     document.getElementsByClassName("fs container m-auto")[0].appendChild(row);
     // Colour blocks
     colours.forEach(function(item, index) {
@@ -39,7 +46,7 @@ function iconColour(user) {
 
         // Container
         cont.className = "col-6 col-sm-3 icon-cont my-4";
-        document.getElementsByClassName("row my-2 mx-0")[0].appendChild(cont);
+        document.getElementsByClassName("row my-3 mx-0")[0].appendChild(cont);
         // Circle
         block.className = "m-auto icon " + item;
         document.getElementsByClassName("col-6 col-sm-3 icon-cont my-4")[index].appendChild(block);

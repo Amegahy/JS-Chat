@@ -16,7 +16,7 @@ var username = localStorage.getItem("username"); // Username
  */
 function loadMsg(type) {
     $.post("php/chat-pull.php", { rows: rows }).done(function(data) {
-        if (data.substr(0, 16) != "[{\"chat_title\":\"" && data != "No chat found") { // Valid responses
+        if (data.substr(0, 15) != "[{\"chat_title\":" && data != "No chat found") { // Valid responses
             displayAlert("error", data);
         } else {
             display_msg(data, type);
@@ -33,18 +33,16 @@ function display_msg(data, type) {
     } else {
         var parsed = JSON.parse(data); // Parsed JSON response
         var chatPanel = document.getElementsByClassName("chat-panel")[0]; // Main chat panel
-        var chatTitle = document.getElementsByClassName("chat-title")[0].innerHTML; // Chat title
+        var chatTitle = document.getElementsByClassName("chat-title")[0]; // Chat title
         var parsedTitle = parsed[0].chat_title; // Chat title pulled in
         var lastMsg = chatPanel.lastChild; // Last child in chat panel (msg)
         var i = parsed.length - 1; // Iterator for json loop
 
-        // Remove user's name from list title
-        parsedTitle = parsedTitle.replace(username + ",", "");
-        parsedTitle = parsedTitle.replace("," + username, "");
-
         // If new title
-        if (chatTitle != parsedTitle) {
-            document.getElementsByClassName("chat-title")[0].innerHTML = parsedTitle;
+        if (chatTitle.innerText != parsedTitle) {
+            var headingText = document.createTextNode(parsedTitle);
+            chatTitle.innerHTML = "";
+            chatTitle.appendChild(headingText);
         }
 
         // If empty
@@ -56,7 +54,7 @@ function display_msg(data, type) {
         }
 
         // Check chat
-        if (type == "load" || chatPanel.innerHTML == "" || (parsed.length > 1 && chatPanel.firstChild.innerHTML == "To start a conversation, send a message.") || (parsed.length > 1 && parsed[1].msg != lastMsg.lastChild.lastChild.innerHTML)) {
+        if (type == "load" || chatPanel.innerHTML == "" || (parsed.length > 1 && chatPanel.firstChild.innerHTML == "To start a conversation, send a message.") || (parsed.length > 1 && parsed[1].msg != lastMsg.lastChild.lastChild.innerText)) {
             chatPanel.innerHTML = "";
             parsed.forEach(function() {
                 if (i > 0) {
@@ -79,13 +77,15 @@ function display_msg(data, type) {
                     row.appendChild(block);
                     // Msg name
                     var name = document.createElement("p");
+                    var nameText = document.createTextNode(parsed[i].name);
+                    name.appendChild(nameText);
                     name.className = "msg-name";
-                    name.innerHTML = parsed[i].name;
                     block.appendChild(name);
                     // Msg
                     var msg = document.createElement("p");
-                    msg.className = "msg";
-                    msg.innerHTML = parsed[i].msg;
+                    var msgText = document.createTextNode(parsed[i].msg);
+                    msg.appendChild(msgText);
+                    msg.className = "msg" + parsed[i].col;
                     block.appendChild(msg);
                     i--; // Iterate back through array of messages
                 }
