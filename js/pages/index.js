@@ -17,5 +17,4 @@ window.onload = function() {
      */
     form.reset(); // Reset form on page load
     form.addEventListener("submit", setUsr); // Set user
-
 }
