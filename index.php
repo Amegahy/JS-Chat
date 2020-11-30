@@ -27,6 +27,9 @@
     <div class="container p-3 h-100 d-flex">
         <form action="php/login.php" method="POST" class="login-form text-center p-5 m-auto w-100">
             <div class="row d-block my-3">
+                <h1>Please log in</h1>
+            </div>
+            <div class="row d-block my-3">
                 <label for="username">Username:</label>
                 <input type="text" name="usr" class="usr" />
             </div>
