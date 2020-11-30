@@ -83,8 +83,7 @@ function display_msg(data, type) {
                     block.appendChild(name);
                     // Msg
                     var msg = document.createElement("p");
-                    var msgText = document.createTextNode(parsed[i].msg);
-                    msg.appendChild(msgText);
+                    msg.innerHTML = parsed[i].msg;
                     msg.className = "msg" + parsed[i].col;
                     block.appendChild(msg);
                     i--; // Iterate back through array of messages
